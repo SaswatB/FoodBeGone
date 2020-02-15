@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +19,14 @@ public class MainController {
 	
 
 	@GetMapping("/users")
-	public @ResponseBody Iterable<User> getAllUsers() {
-		return userRepository.findAll();
+	public @ResponseBody List<User> getAllUsers() {
+		List<User> users = new ArrayList<User>();
+		userRepository.findAll().forEach(users::add);
+		return users;
+	}
+	
+	@PostMapping("/users")
+	public void addUser(@RequestBody User user) {
+		userRepository.save(user);
 	}
 }
