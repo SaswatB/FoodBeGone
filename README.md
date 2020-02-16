@@ -23,15 +23,15 @@ Pick and Reserve Your Food for Pickup!
 (Devs: db admin info here Issue #6 https://github.com/SaswatB/FoodBeGone/issues/6)
 
 ## How we built it
-Built. with
-Client-Side<br/>
+Built with<br/><br/>
+**Client-Side**<br/>
 -html/css
 -react.js
 -TomTom API (https://developer.tomtom.com/) <br/>
 -map <br/>
--reachable region 
+-reachable region <br/>
 
-Server-Side <br/>
+**Server-Side** <br/>
 -Java <br/>
 -Springboot <br/>
 -mySQL <br/>
