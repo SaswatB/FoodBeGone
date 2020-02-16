@@ -124,7 +124,7 @@ To run the app:
 
 
 ## Challenges we ran into
-One of the biggest challenges we faced was integrating with Google Calendar. Accessing an external API is an asynchronous procedure, and we had to make a clever series of callbacks from the chatbot to fetch and update events in the calendar.
+One of the biggest challenges we faced was integrating frontend with backend adding an external API.
 
 ## Accomplishments that we'are proud of
 We are pretty proud of having a working product that solves a real-world need and successfully finished a web application. 
