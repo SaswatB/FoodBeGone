@@ -50,6 +50,7 @@ public class MainController {
 			user.setSupplier_type(params.get("supplier_type").toString());
 			user.setLat(Double.parseDouble(params.get("lat").toString()));
 			user.setLon(Double.parseDouble(params.get("lon").toString()));
+			user.setAddress(params.get("address").toString());
 			userRepository.save(user);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -161,10 +162,24 @@ public class MainController {
 	}
 
 	@GetMapping("/search")
-	public ResponseEntity<List<User>> search(@RequestParam float lon, @RequestParam float lat,
-			@RequestParam int miles) {
-		return null;
+	public ResponseEntity<List<User>> search(@RequestParam float buyerLat, @RequestParam float buyerLon, @RequestParam int miles){
+		double lat2, lon2;
+		double distanceInMiles;
+		List<User> innerUsers = new ArrayList<>();
+		
+		for (User user : userRepository.findAll()) {
+			lat2 = user.getLat();
+			lon2 = user.getLon();
+			distanceInMiles = distance(buyerLat, lat2, buyerLon, lon2)/1.609344;
+			if (distanceInMiles <= miles){
+				innerUsers.add(user);
+			}
+		}
+		return new ResponseEntity<List<User>>(
+			innerUsers,
+			HttpStatus.OK);
 	}
+
 
 	public static double distance(double lat1, double lat2, double lon1, double lon2) {
 		// The math module contains a function
