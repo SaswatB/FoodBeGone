@@ -7,11 +7,9 @@
 ## Inspiration
 **Reducing food waste**-<br/> 
 Roughly one third of the food produced in the world for human consumption every year — approximately 1.3 billion tonnes — gets lost or wasted according to Food and Agriculture Organization of the United Nations. <br/><br/>
-**Restaurant/grocery/bakery demand validation**<br/> 
+**Restaurant/grocery/bakery demand validation**-<br/> 
 Most restaurants, grocery and bakery stores are wasting an additional 25% of their net income and adding up to 15% to food cots. <br/>
 
-![pizza](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/pizzaplace.png)
-![peetcoffee](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/peets.jpg)
 
 ## What it does
 -Allows the restaurant to reduce the food waste <br/>
@@ -113,6 +111,7 @@ One of the biggest challenges we faced was integrating with Google Calendar. Acc
 -Before doing the store visit survey, we thought that restaurants were buying materials to some extent in anticipation of demand. However, through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown away most of the time.
 
 ## What's next for FoodBeGone
+We can dig deeper into our project and add more features. We can add specific pickup time options and add delivery services in conjunction with delivery service to better meet the needs of certain customers. Also, for customers who want to donate, they can create a culture of food donation in connection with the government.
 
 ## Team
 -Dalia <br/>
