@@ -158,11 +158,15 @@ public class MainController {
 			Item item = new Item();
 			ItemTemplate itemTemplate = itemTemplateRepository.findById(params.get("item_template_id").toString())
 					.get();
+
+			LocalDateTime ldt = LocalDateTime.parse(params.get("available_til").toString());
+			ldt.atOffset(ZoneOffset.UTC);
 			item.setCount(Integer.parseInt((params.get("count").toString())));
 			item.setCount_left(Integer.parseInt((params.get("count_left").toString())));
 			item.setItem_template_id(params.get("item_template_id").toString());
 			item.setItem_template(itemTemplate);
-			item.setAvailable_til(LocalDateTime.parse(params.get("available_til").toString()));
+			item.setAvailable_til(ldt);
+			// item.setAvailable_til(LocalDateTime.parse(params.get("available_til").toString()));
 			item.setDisc_percent(Float.parseFloat((params.get("disc_percent").toString())));
 			item.setUser(user);
 
