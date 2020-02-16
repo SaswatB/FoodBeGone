@@ -1,13 +1,17 @@
 # FoodBeGone
 
 ## Overview
--Web application (mobile friendly) built using TomTom’s Map API <br/>
--An app that lets restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices.
+-Web application that lets restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices. <br/>
+-Web application (mobile friendly) built using TomTom’s Map API
 
 ## Inspiration
-Food waste problem xx% <br/>
-restaurant/cafe/bakery demand validation <br/>
-Reducing food waste <br/>
+**Reducing food waste**-<br/> 
+Roughly one third of the food produced in the world for human consumption every year — approximately 1.3 billion tonnes — gets lost or wasted according to Food and Agriculture Organization of the United Nations. <br/><br/>
+**Restaurant/grocery/bakery demand validation**<br/> 
+Most restaurants, grocery and bakery stores are wasting an additional 25% of their net income and adding up to 15% to food cots. <br/>
+
+![peet](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/peets.jpg)
+![pizzz](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/pizzaplace.png)
 
 ## What it does
 -Allows the restaurant to reduce the food waste <br/>
@@ -16,6 +20,52 @@ Reducing food waste <br/>
 
 
 ## Demo (Image and video)
+**Supplier**
+
+
+1.login
+
+![login](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws1_login_supplier.png)
+
+
+2. main
+
+![main](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws2_main.png)
+
+3. Adding item Template(menu) 
+
+![Adding item Template(menu)](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws3_itemTempl_filled.png)
+
+4. Adding item
+
+![Adding item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws4_item_filled.png)
+
+**Buyer**
+
+1. login
+
+![login](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb1_login_buyer.png)
+
+2. map
+
+![map](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb2_map.png)
+
+3. store
+
+![store](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb3_store.png)
+
+
+4. item
+
+![item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb4_item.png)
+
+5. resever
+
+![reserve](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb5_purchase.png)
+
+6. confirmation
+
+![confirmation](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb6_confirmation.png)
 
 
 Pick and Reserve Your Food for Pickup!
@@ -58,11 +108,13 @@ To run the app:
 One of the biggest challenges we faced was integrating with Google Calendar. Accessing an external API is an asynchronous procedure, and we had to make a clever series of callbacks from the chatbot to fetch and update events in the calendar.
 
 ## Accomplishments that we'are proud of
+We are pretty proud of having a working product that solves a real-world need and successfully finished a web application. 
 
 ## What we learned
--Before doing the store visit survey, we thought that restaurants were buying materials to some extent in anticipation of demand. However, through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown away most of the time.
+Before doing the store visit survey, we thought that restaurants were buying materials to some extent in anticipation of demand. However, through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown away most of the time.
 
 ## What's next for FoodBeGone
+We can dig deeper into our project and add more features. We can add specific pickup time options and add delivery services in conjunction with delivery api or application to better meet the needs of certain customers. Also, for customers who want to donate, they can create a culture of food donation in connection with the government.
 
 ## Team
 -Dalia <br/>
