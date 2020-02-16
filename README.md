@@ -1,13 +1,15 @@
 # FoodBeGone
 
 ## Overview
--Web application (mobile friendly) built using TomTom’s Map API <br/>
--An app that lets restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices.
+-Web application that lets restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices. <br/>
+-Web application (mobile friendly) built using TomTom’s Map API
 
 ## Inspiration
-Food waste problem xx% <br/>
-restaurant/cafe/bakery demand validation <br/>
-Reducing food waste <br/>
+**Reducing food waste**-<br/> 
+Roughly one third of the food produced in the world for human consumption every year — approximately 1.3 billion tonnes — gets lost or wasted according to Food and Agriculture Organization of the United Nations. <br/><br/>
+**Restaurant/grocery/bakery demand validation**-<br/> 
+Most restaurants, grocery and bakery stores are wasting an additional 25% of their net income and adding up to 15% to food cots. <br/>
+
 
 ## What it does
 -Allows the restaurant to reduce the food waste <br/>
