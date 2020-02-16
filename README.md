@@ -4,9 +4,9 @@
 -Web application that lets restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices. <br/>
 -Web application (mobile friendly) built using TomTom’s Map API
 
-### Step 1: Pick Your Food.
-### Step 2: Get a Discount!
-### Step 3: Save the Planet!
+**Step 1: Pick Your Food.**
+**Step 2: Get a Discount**
+**Step 3: Save the Planet!**
 ![FoodBeGone ItemsListAndReserveForm](https://user-images.githubusercontent.com/2976514/74608656-f0e45100-5097-11ea-9fed-31a08c8d103a.gif)
 
 ## Inspiration
