@@ -46,6 +46,7 @@ Version 2 - connector
 
 ## Demo (Image and video)
 **GIF videos**
+
 **Buyer video**
 ![video](https://user-images.githubusercontent.com/2976514/74612273-b0e19600-50b8-11ea-82d5-12e91c7c933b.gif)
 
