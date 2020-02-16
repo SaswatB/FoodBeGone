@@ -3,6 +3,7 @@ package FoodBeGone;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -16,6 +17,9 @@ public class ItemTemplate {
 	private int price;
 	private String description;
 	private String image;
+	
+	@ManyToOne
+	private User user;
 
 	public String getItem_templ_id() {
 		return item_templ_id;
@@ -56,4 +60,13 @@ public class ItemTemplate {
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 }

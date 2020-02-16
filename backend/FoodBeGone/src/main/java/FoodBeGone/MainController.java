@@ -53,6 +53,7 @@ public class MainController {
 			user.setAddress(params.get("address").toString());
 			userRepository.save(user);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(null);
@@ -60,23 +61,23 @@ public class MainController {
 
 	@GetMapping("users/{userId}/items/templates")
 	public ResponseEntity<List<ItemTemplate>> getItemTemplate(@PathVariable("userId") String userId) {
-		return new ResponseEntity<List<ItemTemplate>>(iterableToList(itemTemplateRepository.findAll()), HttpStatus.OK);
+		return new ResponseEntity<List<ItemTemplate>>(iterableToList(itemTemplateRepository.findAllByUserId(userId)),
+				HttpStatus.OK);
 	}
 
 	@PostMapping("users/{userId}/items/templates")
 	public ResponseEntity<?> addItemTemplate(@PathVariable("userId") String userId,
 			@RequestBody Map<String, Object> params) {
 
-		User user = userRepository.findById(userId).get();
-
 		try {
+			User user = userRepository.findById(userId).get();
 			ItemTemplate template = new ItemTemplate();
 			template.setName(params.get("name").toString());
 			template.setDescription(params.get("description").toString());
-			template.setPrice(Integer.parseInt((params.get("price").toString())));
+			template.setPrice((int) (Float.parseFloat(params.get("price").toString()) * 100));
 			template.setImage(params.get("image").toString());
+			template.setUser(user);
 
-			user.getItemTemplates().add(template);
 			itemTemplateRepository.save(template);
 			userRepository.save(user);
 		} catch (Exception e) {
@@ -88,8 +89,12 @@ public class MainController {
 
 	@GetMapping("/users/{userId}/transactions")
 	public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("userID") String userID) {
-		User user = userRepository.findById(userID).get();
-		return new ResponseEntity<List<Transaction>>(user.getTransactions(), HttpStatus.OK);
+		List<Item> items = itemRepository.findAllByUserId(userID);
+		List<Transaction> transactions = new ArrayList<Transaction>();
+		for (Item i : items) {
+			transactions.addAll(transactionRepository.findAllByItemId(i.getId()));
+		}
+		return new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
 	}
 
 	@Transactional
@@ -113,7 +118,7 @@ public class MainController {
 		transaction.setAmount((int) amount * 100);
 
 		User user = userRepository.findById(userId).get();
-		user.getTransactions().add(transaction);
+
 		transactionRepository.save(transaction);
 		itemRepository.save(item);
 
@@ -130,7 +135,7 @@ public class MainController {
 	@GetMapping("users/{userId}/items")
 	public ResponseEntity<List<Item>> getAllItems(@PathVariable("userId") String userID) {
 		User user = userRepository.findById(userID).get();
-		return new ResponseEntity<List<Item>>(user.getItems(), HttpStatus.OK);
+		return new ResponseEntity<List<Item>>(itemRepository.findAllByUserId(userID), HttpStatus.OK);
 	}
 
 	// getting a specific item
@@ -145,13 +150,16 @@ public class MainController {
 		try {
 			User user = userRepository.findById(userId).get();
 			Item item = new Item();
-
+			ItemTemplate itemTemplate = itemTemplateRepository.findById(params.get("item_template_id").toString())
+					.get();
 			item.setCount(Integer.parseInt((params.get("count").toString())));
 			item.setCount_left(Integer.parseInt((params.get("count_left").toString())));
 			item.setItem_template_id(params.get("item_template_id").toString());
+			item.setItem_template(itemTemplate);
 			item.setAvailable_til(LocalDateTime.parse(params.get("available_til").toString()));
 			item.setDisc_percent(Float.parseFloat((params.get("disc_percent").toString())));
-			user.getItems().add(item);
+			item.setUser(user);
+
 			itemRepository.save(item);
 			userRepository.save(user);
 		} catch (Exception e) {
@@ -162,24 +170,22 @@ public class MainController {
 	}
 
 	@GetMapping("/search")
-	public ResponseEntity<List<User>> search(@RequestParam float buyerLat, @RequestParam float buyerLon, @RequestParam int miles){
+	public ResponseEntity<List<User>> search(@RequestParam float buyerLat, @RequestParam float buyerLon,
+			@RequestParam int miles) {
 		double lat2, lon2;
 		double distanceInMiles;
 		List<User> innerUsers = new ArrayList<>();
-		
+
 		for (User user : userRepository.findAll()) {
 			lat2 = user.getLat();
 			lon2 = user.getLon();
-			distanceInMiles = distance(buyerLat, lat2, buyerLon, lon2)/1.609344;
-			if (distanceInMiles <= miles){
+			distanceInMiles = distance(buyerLat, lat2, buyerLon, lon2) / 1.609344;
+			if (distanceInMiles <= miles) {
 				innerUsers.add(user);
 			}
 		}
-		return new ResponseEntity<List<User>>(
-			innerUsers,
-			HttpStatus.OK);
+		return new ResponseEntity<List<User>>(innerUsers, HttpStatus.OK);
 	}
-
 
 	public static double distance(double lat1, double lat2, double lon1, double lon2) {
 		// The math module contains a function
