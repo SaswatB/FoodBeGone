@@ -24,18 +24,17 @@ Pick and Reserve Your Food for Pickup!
 
 ## How we built it
 Built. with
-Client-Side
-html/css
-react.js
-TomTom API (https://developer.tomtom.com/)
-
--map
+Client-Side<br/>
+-html/css
+-react.js
+-TomTom API (https://developer.tomtom.com/) <br/>
+-map <br/>
 -reachable region 
 
-Server-Side
--Java
--Springboot
--mySQL
+Server-Side <br/>
+-Java <br/>
+-Springboot <br/>
+-mySQL <br/>
 -Hibernate
 
 ## Challenges we ran into
