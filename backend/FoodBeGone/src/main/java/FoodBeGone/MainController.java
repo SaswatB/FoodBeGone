@@ -1,5 +1,6 @@
 package FoodBeGone;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,8 @@ public class MainController {
 			user.setClose_time(LocalTime.parse(params.get("close_time").toString()));
 			user.setUser_type(params.get("user_type").toString());
 			user.setSupplier_type(params.get("supplier_type").toString());
+			user.setLat(Double.parseDouble(params.get("lat").toString()));
+			user.setLon(Double.parseDouble(params.get("lon").toString()));
 			userRepository.save(user);
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -63,6 +66,7 @@ public class MainController {
 			template.setUser_id(params.get("user_id").toString());
 			template.setPrice(Double.parseDouble((params.get("price").toString())));
 			template.setImage(params.get("image").toString());
+			
 			itemTemplateRepository.save(template);
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -78,12 +82,23 @@ public class MainController {
 				HttpStatus.OK);
 	}
 	
-	
+	@PostMapping("/transaction")
+	public ResponseEntity<Transaction> createTransaction(Map<String,Object> params){
+		Transaction transaction = new Transaction();
+		
+		transaction.setItem_id(params.get("item_id").toString());
+		transaction.setBuyer_id(params.get("buyer_id").toString());
+		transaction.setTimestamp(LocalTime.now());
+		
+		
+		
+	}
 	
 	private static <T> List<T> iterableToList(Iterable<T> iterable){
 		List<T> list = new ArrayList<T>();
 		iterable.forEach(list::add);
 		return list;
 	}
+	
 	
 }
