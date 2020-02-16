@@ -145,7 +145,7 @@ export function Map() {
                             const value = await axios.get(`http://${SERVER}/users/${location.id}/items`)
                                 .then(function (response) {
                                     // handle success
-                                    setSelectedLocationItems(response.data);
+                                    setSelectedLocationItems(response.data.filter((item) => item.count_left > 0));
                                 })
                                 .catch(function (error) {
                                     // handle error

@@ -10,7 +10,11 @@ export function Items() {
   const [items, setItems] = useState();
   // get items from the api
   useEffect(() => {
-    const call = async () => setItems((await axios.get(`http://${SERVER}/users/${supplier_id}/items`)).data);
+    const call = async () => {
+        const items = (await axios.get(`http://${SERVER}/users/${supplier_id}/items`)).data;
+        const valid_items = items.filter((item) => item.count_left > 0);
+        setItems(valid_items);
+    }
     call();
   }, [supplier_id])
 
