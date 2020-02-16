@@ -18,7 +18,7 @@ function getLocation() {
   }
 
 export function Map() {
-    const [userId, setUserId, userType] = useUser();
+    const [userId, setUserId, userType, setUserType] = useUser();
     const history = useHistory();
 
     if (userType === 'supplier') {
@@ -146,6 +146,7 @@ export function Map() {
             <div className="options-control" onClick={showMenu}></div>
             {menuVisible && <div className="map-menu">
                 <Link className="map-menu-item" to="/transactions">Transaction History</Link>
+                <div className="map-menu-item" onClick={() => {setUserId(''); setUserType('');}}>Logout</div>
             </div>}
         </>
     );
