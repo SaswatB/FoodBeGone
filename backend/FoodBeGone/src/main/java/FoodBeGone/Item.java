@@ -17,8 +17,7 @@ public class Item {
 	private String id;
     private int count;
     private int count_left;
-	@ManyToOne
-	private ItemTemplate item_template;
+	private String item_template_id;
 	private LocalDateTime available_til;
 	private float disc_percent;
 
@@ -38,12 +37,12 @@ public class Item {
 		this.count = count;
 	}
 
-	public ItemTemplate getItem_template() {
-		return item_template;
+	public String getItem_template_id() {
+		return item_template_id;
 	}
 
-	public void setItem_template(ItemTemplate item_template) {
-		this.item_template = item_template;
+	public void setItem_template_id(String item_template_id) {
+		this.item_template_id = item_template_id;
 	}
 
 	public LocalDateTime getAvailable_til() {
