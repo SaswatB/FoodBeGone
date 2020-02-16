@@ -1,0 +1,9 @@
+.qr-scanner-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.qr-scanner-container {
+    width: 500px;
+}
