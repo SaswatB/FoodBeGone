@@ -14,9 +14,12 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 ![pizzz](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/pizzaplace.png)
 
 ## What it does
+### Functionality
 -Allows the restaurant to reduce the food waste <br/>
 -Allows the end-user to get food from the restaurants for cheaper price <br/>
 -Provides basic information such as hours of operation, directions to the shop, and pricing <br/>
+
+### Features
 
 
 ## Demo (Image and video)
@@ -80,8 +83,11 @@ Built with<br/><br/>
 -html/css <br/>
 -react.js <br/>
 -TomTom API (https://developer.tomtom.com/) <br/>
--map <br/>
--reachable region <br/>
+* Map Display API <br/>
+   * Cusotom Makrer
+* Reachable region <br/>
+
+
 
 **Server-Side** <br/>
 -Java <br/>
