@@ -1,4 +1,4 @@
-Creating User
+Creating User (supplier)
 {
     "user_name": "SoMa Pizza",
     "user_type": "supplier",
@@ -23,3 +23,65 @@ Creating User
     "close_time": "21:00:00"
 }
 
+
+{
+    "user_name": "Roy's Restaurant",
+    "user_type": "supplier",
+    "supplier_type": "restaurant",
+    "lat": 37.7870402,
+    "lon": -122.4010203,
+    "address": "575 Mission St, San Francisco, CA 94105",
+    "description": "Roy's Description goes here",
+    "open_time": "11:00:00",
+    "close_time": "22:00:00"
+}
+
+{
+    "user_name": "The Grove - Yerba Buena",
+    "user_type": "supplier",
+    "supplier_type": "restaurant",
+    "lat": 37.7872001,
+    "lon": -122.4028501,
+    "address": "690 Mission St, San Francisco, CA 94105",
+    "description": "The Grove's Description goes here",
+    "open_time": "8:00:00",
+    "close_time": "21:00:00"
+}
+
+{
+    "user_name": "Osha Thai Restaurant and Lounge",
+    "user_type": "supplier",
+    "supplier_type": "restaurant",
+    "lat": 37.7841052,
+    "lon": -122.4008975,
+    "address": "311 3rd St, San Francisco, CA 94107",
+    "description": "Osha Thai Restaurant and Lounge's Description goes here",
+    "open_time": "17:00:00",
+    "close_time": "22:00:00"
+}
+
+
+{
+    "user_name": "The Chieftain Irish Pub & Restaurant",
+    "user_type": "supplier",
+    "supplier_type": "restaurant",
+    "lat": 37.7813617,
+    "lon": -122.4051413,
+    "address": "198 5th St, San Francisco, CA 94103",
+    "description": "The Chieftain Irish Pub & Restaurant's Description goes here",
+    "open_time": "11:00:00",
+    "close_time": "23:00:00"
+}
+
+
+{
+    "user_name": "Saswat",
+    "user_type": "buyer",
+    "supplier_type": "",
+    "lat": "",
+    "lon": "",
+    "address": "",
+    "description": "",
+    "open_time": "",
+    "close_time": "",
+}

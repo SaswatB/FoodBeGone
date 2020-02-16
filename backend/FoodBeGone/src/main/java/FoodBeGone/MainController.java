@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.time.ZoneOffset;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -88,8 +89,8 @@ public class MainController {
 	}
 
 	@GetMapping("/users/{userId}/transactions")
-	public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("userID") String userID) {
-		List<Item> items = itemRepository.findAllByUserId(userID);
+	public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("userId") String userId) {
+		List<Item> items = itemRepository.findAllByUserId(userId);
 		List<Transaction> transactions = new ArrayList<Transaction>();
 		for (Item i : items) {
 			transactions.addAll(transactionRepository.findAllByItemId(i.getId()));
@@ -98,7 +99,7 @@ public class MainController {
 	}
 
 	@GetMapping("/users/{userId}/transactions/{transaction_id}")
-	public ResponseEntity<Transaction> getTransactionById(@PathVariable("userID") String userID,
+	public ResponseEntity<Transaction> getTransactionById(@PathVariable("userId") String userId,
 			@PathVariable("transaction_id") String transaction_id) {
 		return new ResponseEntity<Transaction>(transactionRepository.findById(transaction_id).get(), HttpStatus.OK);
 	}
@@ -106,9 +107,8 @@ public class MainController {
 	@Transactional
 	@PostMapping("/users/{userId}/transactions")
 	public ResponseEntity<Transaction> createTransaction(@PathVariable("userId") String userId,
-			Map<String, Object> params) {
+			@RequestBody Map<String, Object> params) {
 		Transaction transaction = new Transaction();
-		System.out.println(params.get("item_id"));
 		Item item = itemRepository.findById(params.get("item_id").toString()).get();
 		ItemTemplate itemTemplate = itemTemplateRepository.findById(item.getItem_template_id()).get();
 
@@ -118,7 +118,7 @@ public class MainController {
 		transaction.setTimestamp(LocalTime.now());
 		transaction.setToken(params.get("token").toString());
 
-		item.setCount(item.getCount() - transaction.getPurchased_count());
+		item.setCount_left(item.getCount_left() - transaction.getPurchased_count());
 
 		double amount = item.getDisc_percent() * transaction.getPurchased_count() * itemTemplate.getPrice();
 
@@ -159,11 +159,16 @@ public class MainController {
 			Item item = new Item();
 			ItemTemplate itemTemplate = itemTemplateRepository.findById(params.get("item_template_id").toString())
 					.get();
+
+			LocalDateTime ldt = LocalDateTime.parse(params.get("available_til").toString());
+			ldt.atOffset(ZoneOffset.UTC);
+
 			item.setCount(Integer.parseInt((params.get("count").toString())));
 			item.setCount_left(Integer.parseInt((params.get("count_left").toString())));
 			item.setItem_template_id(params.get("item_template_id").toString());
 			item.setItem_template(itemTemplate);
-			item.setAvailable_til(LocalDateTime.parse(params.get("available_til").toString()));
+			item.setAvailable_til(ldt);
+			// item.setAvailable_til(LocalDateTime.parse(params.get("available_til").toString()));
 			item.setDisc_percent(Float.parseFloat((params.get("disc_percent").toString())));
 			item.setUser(user);
 
