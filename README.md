@@ -19,18 +19,48 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 
 ## Demo (Image and video)
 **Supplier**
-1. ![login](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws1_login_supplier.png)
-2. ![main](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws2_main.png)
-3. ![Adding item Template(menu)](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws3_itemTempl_filled.png)
-4. ![Adding item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws4_item_filled.png)
+1.login
+
+![login](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws1_login_supplier.png)
+
+
+2. main
+
+![main](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws2_main.png)
+
+3. Adding item Template(menu) 
+
+![Adding item Template(menu)](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws3_itemTempl_filled.png)
+
+4. Adding item
+
+![Adding item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws4_item_filled.png)
 
 **Buyer**
-1. ![login](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb1_login_buyer.png)
-2. ![map](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb2_map.png)
-3. ![store](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb3_store.png)
-4. ![item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb4_item.png)
-5. ![reserve](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb5_purchase.png)
-6. ![confirmation](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb6_confirmation.png)
+1. login
+
+![login](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb1_login_buyer.png)
+
+2. map
+
+![map](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb2_map.png)
+
+3. store
+
+![store](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb3_store.png)
+
+
+4. item
+
+![item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb4_item.png)
+
+5. resever
+
+![reserve](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb5_purchase.png)
+
+6. confirmation
+
+![confirmation](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb6_confirmation.png)
 
 
 Pick and Reserve Your Food for Pickup!
