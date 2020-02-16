@@ -37,18 +37,6 @@ Creating User (supplier)
 }
 
 {
-    "user_name": "The Grove - Yerba Buena",
-    "user_type": "supplier",
-    "supplier_type": "restaurant",
-    "lat": 37.7872001,
-    "lon": -122.4028501,
-    "address": "690 Mission St, San Francisco, CA 94105",
-    "description": "The Grove's Description goes here",
-    "open_time": "8:00:00",
-    "close_time": "21:00:00"
-}
-
-{
     "user_name": "Osha Thai Restaurant and Lounge",
     "user_type": "supplier",
     "supplier_type": "restaurant",
@@ -83,5 +71,39 @@ Creating User (supplier)
     "address": "",
     "description": "",
     "open_time": "",
-    "close_time": "",
+    "close_time": ""
+}
+
+
+Template Sample
+
+
+{
+	"name": "Pepperoni Pizza - 1 Slice",
+	"description": "Single slice of perpperoni pizza",
+	"price": 3.0,
+	"image":"base-64 encoded image"
+}
+
+{
+	"name": "chicken soup can",
+	"description": "can of chicken soup",
+	"price": 6.0,
+	"image":"base-64 encoded image1"
+}
+
+
+{
+	"name": "chicken burrito",
+	"description": "chicken burrito",
+	"price": 10.0,
+	"image":"base-64 encoded image2"
+}
+
+
+{
+	"name": "Cheese Pizza - 1 Slice",
+	"description": "Single slice of cheese pizza",
+	"price": 4.0,
+	"image":"base-64 encoded image"
 }
