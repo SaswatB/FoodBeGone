@@ -11,6 +11,9 @@ import { Items } from './pages/items/Items';
 import { Users } from './pages/users/Users';
 import { Transactions } from './pages/transactions/Transactions';
 import { Confirmation } from "./pages/confirmation/Confirmation";
+import { ItemTemplateForm } from "./pages/itemtemplateform/ItemTemplateForm";
+import { ItemInformationForm } from './pages/iteminformationform/ItemInformationForm';
+
 
 export default function App() {
   return (
@@ -24,6 +27,14 @@ export default function App() {
           <Route path="/users">
             <NavBar />
             <Users />
+          </Route>
+          <Route path="/itemtemplateform">
+            <NavBar />
+            <ItemTemplateForm />
+          </Route>
+          <Route path="/iteminformationform">
+            <NavBar />
+            <ItemInformationForm />
           </Route>
           <Route path="/transactions">
             <NavBar />

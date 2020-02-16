@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    min-width: 768px;
+  }
+
+  .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  
+.vertical-center {
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+    opacity: 1;
+    position: relative;
+    top: 0;
+  }
+  
+input[type="file"] {
+  display: none;
+} 
+
+.custom-file-upload {
+  background-color: #bbe6ff;
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: 17px;
+  padding: 13px 20px;
+  margin: 38px;
+  cursor: pointer;
+}
+
+.form {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-color: black;
+    border-width: 1px;
+    text-align: center;
+    outline: none;
+    min-width: 250px;
+}
+
+.submit {
+  background-color: #bbe6ff;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 15px 30px;
+  margin: 50px 2px;
+  cursor: pointer;
+}
+  
+/* header */
+span {
+    display: inline-block;
+}
+
+
+/* about */
+.about {
+  height: 100vh;
+  min-height: 600px;
+  text-align: center;
+}
+
+.about h3 {
+  font-size: 40px;
+  color: #4a4a4a;
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.about .uploadset {
+  display: inline-block;
+}
+
+.about .upload:not(:last-child) {
+  margin-bottom: 17px;
+}
+
+.about .upload .title {
+  display: inline-block;
+  width: 135px;
+  vertical-align: middle;
+  margin-right: 12px;
+  font-size: 17.5px;
+  color: #4a4a4a;
+}
+
+.about .upload .bar {
+  display: inline-block;
+  vertical-align: middle;
+  width: 180px;
+  height: 33px;
+  position: relative;
+  line-height: 33px;
+}
+
+.about .upload .bar .input {
+  font-size: 14px;
+  position: absolute;
+  right: 20px;
+  left: 10px;
+  top: 0;
+}
