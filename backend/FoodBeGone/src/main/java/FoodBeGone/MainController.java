@@ -115,9 +115,6 @@ public class MainController {
 		return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
 	}
 	
-	
-	
-	
 	private static <T> List<T> iterableToList(Iterable<T> iterable){
 		List<T> list = new ArrayList<T>();
 		iterable.forEach(list::add);
