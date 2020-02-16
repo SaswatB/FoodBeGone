@@ -1,6 +1,5 @@
 package FoodBeGone;
 
-import java.time.LocalTime;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
