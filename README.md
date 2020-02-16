@@ -49,11 +49,11 @@ One of the biggest challenges we faced was integrating with Google Calendar. Acc
 ## What's next for FoodBeGone
 
 ## Team
-Dalia
-Eric
-Saswat 
-Simon
-Shawn
+-Dalia <br/>
+-Eric <br/>
+-Saswat <br/>
+-Simon <br/>
+-Shawn
 
 
 
