@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import tt from '@tomtom-international/web-sdk-maps';
 import tts from '@tomtom-international/web-sdk-services';
-import "./Home.css"
+import "./Map.css"
 
 const DEFAULT_MAP_ZOOM = 14;
 
@@ -15,7 +15,7 @@ function getLocation() {
     });
   }
 
-export function Home() {
+export function Map() {
     const [map, setMap] = useState();
     const [userLocation, setUserLocation] = useState();
     const [locations, setLocations] = useState([
