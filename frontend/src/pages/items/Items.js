@@ -16,12 +16,12 @@ export function Items() {
 
   const history = useHistory();
   const submitOrder = async (item_id, purchased_count) => {
-    const transaction = await axios.post(`http://${SERVER}/users/0/transactions`, {
+    const transaction = (await axios.post(`http://${SERVER}/users/0/transactions`, {
       item_id,
       "buyer_id": "123",
       purchased_count,
       "token": "123"
-    });
+    })).data;
     history.push(`/confirmation/${transaction.id}`);
   };
 
