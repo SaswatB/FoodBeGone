@@ -14,9 +14,12 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 ![pizzz](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/pizzaplace.png)
 
 ## What it does
+### Functionality
 -Allows the restaurant to reduce the food waste <br/>
 -Allows the end-user to get food from the restaurants for cheaper price <br/>
 -Provides basic information such as hours of operation, directions to the shop, and pricing <br/>
+
+### Features
 
 
 ## Demo (Image and video)
@@ -80,8 +83,11 @@ Built with<br/><br/>
 -html/css <br/>
 -react.js <br/>
 -TomTom API (https://developer.tomtom.com/) <br/>
--map <br/>
--reachable region <br/>
+* Map Display API <br/>
+   * Cusotom Makrer
+* Reachable region <br/>
+
+
 
 **Server-Side** <br/>
 -Java <br/>
@@ -108,7 +114,7 @@ To run the app:
 One of the biggest challenges we faced was integrating with Google Calendar. Accessing an external API is an asynchronous procedure, and we had to make a clever series of callbacks from the chatbot to fetch and update events in the calendar.
 
 ## Accomplishments that we'are proud of
-We are pretty proud of having a working product that solves a real-world need and successfully finished a web application. We truly believe that this could positively contribute to a reduction of food waste, satisfy the restaurant owner's problem as well as customer's needs. 
+We are pretty proud of having a working product that solves a real-world need and successfully finished a web application. 
 
 ## What we learned
 Before doing the store visit survey, we thought that restaurants were buying materials to some extent in anticipation of demand. However, through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown away most of the time.
@@ -122,6 +128,8 @@ We can dig deeper into our project and add more features. We can add specific pi
 -Saswat <br/>
 -Simon <br/>
 -Shawn
+
+
 
 
 
