@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@tomtom-international/web-sdk-maps": "^5.45.0",
     "@tomtom-international/web-sdk-services": "^5.45.0",
+    "axios": "^0.19.2",
     "materialize-css": "^1.0.0",
     "moment": "^2.24.0",
     "qrcode.react": "^1.0.0",
