@@ -8,7 +8,7 @@ export function Home() {
             style: 'tomtom://vector/1/basic-main',
             container: 'map'
         });
-        
+
     }, [])
     return <div id="map" style={{height: "100vh"}}/>;
 }
