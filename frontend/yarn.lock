@@ -1319,6 +1319,17 @@
     uuid "3.3.3"
     whatwg-fetch "2.0.3"
 
+"@tomtom-international/web-sdk-services@^5.45.0":
+  version "5.45.0"
+  resolved "https://registry.yarnpkg.com/@tomtom-international/web-sdk-services/-/web-sdk-services-5.45.0.tgz#a019b030b9534dcb360dcf560ae290767a9f7f4c"
+  integrity sha512-gh0yeCYupOMGO3HiLjNPJQi9B6nygSwosQMyjK7dMZSq0T5AmKtzczXexDSlpyFq15RwxBNJe8J0QxLYkpqFhg==
+  dependencies:
+    axios "0.18.0"
+    core-js "3.6.2"
+    lodash "4.17.5"
+    regenerator-runtime "0.12.1"
+    whatwg-fetch "2.0.3"
+
 "@types/babel__core@^7.1.0":
   version "7.1.4"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.4.tgz#5c5569cc40e5f2737dfc00692f5444e871e4a234"
