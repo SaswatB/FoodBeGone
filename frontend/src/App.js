@@ -12,7 +12,7 @@ import { Users } from './pages/users/Users';
 export default function App() {
   return (
     <Router>
-      <div>
+      <div style={{display: "flex", flexDirection: "column", height: "100vh"}}>
         <nav>
           <ul>
             <li>
