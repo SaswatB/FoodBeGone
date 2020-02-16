@@ -16,7 +16,9 @@ public class Transaction {
 	private String id;
 	private String item_id;
 	private LocalTime timestamp;
+	private int purchased_count;
 	private String buyer_id;
+	private double amount;
 
 	public String getId() {
 		return id;
@@ -50,4 +52,23 @@ public class Transaction {
 		this.buyer_id = buyer_id;
 	}
 
+	public int getPurchased_count() {
+		return purchased_count;
+	}
+
+	public void setPurchased_count(int purchased_count) {
+		this.purchased_count = purchased_count;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	
+	
+
+	
 }

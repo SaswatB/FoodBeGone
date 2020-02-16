@@ -88,8 +88,10 @@ public class MainController {
 		
 		transaction.setItem_id(params.get("item_id").toString());
 		transaction.setBuyer_id(params.get("buyer_id").toString());
+		transaction.setPurchased_count(Integer.parseInt(params.get("purchased_count").toString()));
 		transaction.setTimestamp(LocalTime.now());
 		
+		Item item = itemRepository.findById(transaction.getItem_id()).get();
 		
 		
 	}
@@ -99,6 +101,5 @@ public class MainController {
 		iterable.forEach(list::add);
 		return list;
 	}
-	
 	
 }
