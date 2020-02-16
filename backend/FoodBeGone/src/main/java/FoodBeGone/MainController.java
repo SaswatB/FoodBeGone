@@ -108,6 +108,7 @@ public class MainController {
 	public ResponseEntity<Transaction> createTransaction(@PathVariable("userId") String userId,
 			Map<String, Object> params) {
 		Transaction transaction = new Transaction();
+		System.out.println(params.get("item_id"));
 		Item item = itemRepository.findById(params.get("item_id").toString()).get();
 		ItemTemplate itemTemplate = itemTemplateRepository.findById(item.getItem_template_id()).get();
 
