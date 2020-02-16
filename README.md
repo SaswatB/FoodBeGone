@@ -44,7 +44,7 @@ Built with<br/><br/>
 
 To run the app:
 
-1. [Clone the app] (https://github.com/SaswatB/FoodBeGone.git)
+1. Clone the app (https://github.com/SaswatB/FoodBeGone.git)
 2. start server 
     * go to 'Githubs/FoodBeGone/backend/FoodBeGone'
     * run command './gradlew bootRun'
