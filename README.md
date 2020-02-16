@@ -25,19 +25,18 @@ Pick and Reserve Your Food for Pickup!
 (Devs: db admin info here Issue #6 https://github.com/SaswatB/FoodBeGone/issues/6)
 
 ## How we built it
-Built. with
-Client-Side
-html/css
-react.js
-TomTom API (https://developer.tomtom.com/)
+Built with<br/><br/>
+**Client-Side**<br/>
+-html/css <br/>
+-react.js <br/>
+-TomTom API (https://developer.tomtom.com/) <br/>
+-map <br/>
+-reachable region <br/>
 
--map
--reachable region 
-
-Server-Side
--Java
--Springboot
--mySQL
+**Server-Side** <br/>
+-Java <br/>
+-Springboot <br/>
+-mySQL <br/>
 -Hibernate
 
 ## Installation Instruction
@@ -66,11 +65,11 @@ One of the biggest challenges we faced was integrating with Google Calendar. Acc
 ## What's next for FoodBeGone
 
 ## Team
-Dalia
-Eric
-Saswat 
-Simon
-Shawn
+-Dalia <br/>
+-Eric <br/>
+-Saswat <br/>
+-Simon <br/>
+-Shawn
 
 
 

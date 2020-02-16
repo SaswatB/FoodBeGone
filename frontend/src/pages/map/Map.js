@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import tt from '@tomtom-international/web-sdk-maps';
 import tts from '@tomtom-international/web-sdk-services';
+import { SERVER } from "../../constants";
 import { useUser } from '../../utils/useUser'
 import "./Map.css"
 
@@ -88,12 +89,43 @@ export function Map() {
                 new tt.Marker({element}).setLngLat(userLngLat).addTo(loadedMap);
 
                 // todo api call
+                const axios = require('axios');
+                const value = await axios.get(`http://${SERVER}/search?buyerLat=${userCoordinates.latitude}&buyerLon=${userCoordinates.longitude}&miles=${4}`)
+                    .then(function (response) {
+                        // handle success
+                        console.log(response);
+                        const response_users = response.data
+                        var index = 0;
+                        var users = [];
+                        while (index < response_users.length) {
+                            const user = response_users[index];
+                            const t = {
+                                id: user.id,
+                                name: user.user_name,
+                                lat: user.lat,
+                                lng: user.lon,
+                            }
+                            console.log(t);
+                            users.push(t);
+                            index++;
+                        }
+                        setLocations(users);
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .then(function () {
+                        // always executed
+                    });
+
                 setMap(loadedMap);
             } catch(e) {console.error(e);}
         })();
     }, []);
 
     useEffect(() => {
+
         if (map && locations) {
             // add a marker for each location
             locations.forEach((location) => {
