@@ -19,6 +19,8 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 
 ## Demo (Image and video)
 **Supplier**
+
+
 1.login
 
 ![login](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws1_login_supplier.png)
@@ -37,6 +39,7 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 ![Adding item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws4_item_filled.png)
 
 **Buyer**
+
 1. login
 
 ![login](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb1_login_buyer.png)
