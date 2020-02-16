@@ -1,0 +1,8 @@
+.confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.confirmation-qr {
+    margin: 20px;
+}

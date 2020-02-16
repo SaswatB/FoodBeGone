@@ -1,0 +1,14 @@
+.transaction-list-message {
+    text-align: center;
+    padding: 20px;
+}
+.transaction-list-item {
+    display: block;
+    padding: 20px;
+    color: black;
+    border-bottom: lightgray 1px solid;
+    transition: all 150ms;
+}
+.transaction-list-item:hover {
+    background-color: lightskyblue;
+}

@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "./NavBar.css"
 
 export function NavBar() {
     return (
     <nav>
         <ul>
           <li>
-            <Link to="/">❮ &nbsp; Back to Map</Link>
+            <div onClick={() => window.history.back()} className="nav-back">❮ &nbsp; Back</div>
           </li>
         </ul>
     </nav>);
