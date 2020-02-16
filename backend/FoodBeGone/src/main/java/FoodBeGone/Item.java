@@ -1,6 +1,7 @@
 package FoodBeGone;
 
 import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ public class Item {
     private int count_left;
 	@ManyToOne
 	private ItemTemplate item_template;
-	private LocalTime available_til;
+	private LocalDateTime available_til;
 	private float disc_percent;
 
 	public String getId() {
@@ -46,11 +47,11 @@ public class Item {
 		this.item_template = item_template;
 	}
 
-	public LocalTime getAvailable_til() {
+	public LocalDateTime getAvailable_til() {
 		return available_til;
 	}
 
-	public void setAvailable_til(LocalTime available_til) {
+	public void setAvailable_til(LocalDateTime available_til) {
 		this.available_til = available_til;
 	}
 

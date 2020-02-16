@@ -13,7 +13,6 @@ public class ItemTemplate {
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String item_templ_id;
 	private String name;
-	private String user_id;
 	private double price;
 	private String description;
 	private String image;
@@ -32,14 +31,6 @@ public class ItemTemplate {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
 	}
 
 	public double getPrice() {

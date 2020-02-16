@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,20 +58,19 @@ public class MainController {
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}
 	
-	@GetMapping("users/{userId}/items/template")
-	public ResponseEntity<List<ItemTemplate>> getItemTemplate() {
+	@GetMapping("users/{userId}/items/templates")
+	public ResponseEntity<List<ItemTemplate>> getItemTemplate(@PathVariable("userId") String userId) {
 		return new ResponseEntity<List<ItemTemplate>>(
 				iterableToList(itemTemplateRepository.findAll()), 
 				HttpStatus.OK);
 	}
 	
-	@PostMapping("users/{userId}/items/template")
+	@PostMapping("users/{userId}/items/templates")
 	public ResponseEntity<?> addItemTemplate(@RequestBody Map<String, Object> params) {
 		try {
 			ItemTemplate template = new ItemTemplate();
 			template.setName(params.get("name").toString());
 			template.setDescription(params.get("description").toString());
-			template.setUser_id(params.get("user_id").toString());
 			template.setPrice(Double.parseDouble((params.get("price").toString())));
 			template.setImage(params.get("image").toString());
 			
@@ -82,15 +82,15 @@ public class MainController {
 	}
 	
 	
-	@GetMapping("/users/{userID}/transactions")
+	@GetMapping("/users/{userId}/transactions")
 	public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("userID") String userID){
 		User user = userRepository.findById(userID).get();
 		return new ResponseEntity<List<Transaction>>(user.getTransactions(), HttpStatus.OK);
 	}
 	
 	@Transactional
-	@PostMapping("/users/{userID}/transactions")
-	public ResponseEntity<Transaction> createTransaction(@PathVariable("userId") String userID, Map<String,Object> params){
+	@PostMapping("/users/{userId}/transactions")
+	public ResponseEntity<Transaction> createTransaction(@PathVariable("userId") String userId, Map<String,Object> params){
 		Transaction transaction = new Transaction();
 		
 		transaction.setItem_id(params.get("item_id").toString());
@@ -107,16 +107,13 @@ public class MainController {
 		
 		transaction.setAmount(amount);
 		
-		User user = userRepository.findById(userID).get();
+		User user = userRepository.findById(userId).get();
 		user.getTransactions().add(transaction);
 		transactionRepository.save(transaction);
 		itemRepository.save(item);
 		
 		return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
 	}
-	
-	
-	
 	
 	private static <T> List<T> iterableToList(Iterable<T> iterable){
 		List<T> list = new ArrayList<T>();
@@ -142,19 +139,20 @@ public class MainController {
 			itemRepository.findById(itemId).get(),
 			HttpStatus.OK);
 	}
+	
 
 	@Transactional
 	@PostMapping("users/{userId}/items")
-	public ResponseEntity<?> addItem(@PathVariable("userID") String userID, @RequestBody Map<String, Object> params) {
+	public ResponseEntity<?> addItem(@PathVariable("userId") String userId, @RequestBody Map<String, Object> params) {
 		try {
-			User user =  userRepository.findById(userID).get();
+			User user =  userRepository.findById(userId).get();
 			Item item = new Item();
 			
 			item.setId(params.get("id").toString());
 			item.setCount(Integer.parseInt((params.get("count").toString())));
 			item.setCount_left(Integer.parseInt((params.get("count_left").toString())));
 			item.setItem_template((ItemTemplate) params.get("item_template"));
-			item.setAvailable_til(LocalTime.parse(params.get("available_til").toString()));
+			item.setAvailable_til(LocalDateTime.parse(params.get("available_til").toString()));
 			item.setDisc_percent(Integer.parseInt((params.get("disc_percent").toString())));
 			user.getItems().add(item);
 			itemRepository.save(item);
