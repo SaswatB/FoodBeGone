@@ -13,7 +13,7 @@ public class ItemTemplate {
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String item_templ_id;
 	private String name;
-	private double price;
+	private int price;
 	private String description;
 	private String image;
 
@@ -37,7 +37,7 @@ public class ItemTemplate {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

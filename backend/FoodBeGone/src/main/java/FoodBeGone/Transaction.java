@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,11 +15,13 @@ public class Transaction {
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
+	
+	@OneToOne
 	private Item item;
 	private LocalTime timestamp;
 	private int purchased_count;
 	private String buyer_id;
-	private double amount;
+	private int amount;
 	private String token;
 
 	public String getId() {
@@ -65,7 +68,7 @@ public class Transaction {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 
