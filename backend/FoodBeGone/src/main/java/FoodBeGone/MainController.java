@@ -124,25 +124,27 @@ public class MainController {
 
 	// getting a list of items
 	@GetMapping("user/{userId}/items")
-	public ResponseEntity<List<Item>> getAllItems(){
+	public ResponseEntity<List<Item>> getAllItems(@PathVariable String userID){
+		User user =  userRepository.findById(userID).get();
 		return new ResponseEntity<List<Item>>(
-			iterableToList(itemRepository.findAll()), 
+			user.getItems(),
 			HttpStatus.OK);
 	}
 
 
 	// getting a specific item
 	@GetMapping("user/{userId}/items/{itemId}")
-	public ResponseEntity<Item> getItem(@PathVariable String itemId){
+	public ResponseEntity<Item> getItem(@PathVariable String itemId, @PathVariable String userID){
 		return new ResponseEntity<Item>(
 			itemRepository.findById(itemId).get(),
 			HttpStatus.OK);
 	}
 
+	@Transactional
 	@PostMapping("user/{userId}/item")
-	public ResponseEntity<?> addItem(@RequestBody Map<String, Object> params) {
+	public ResponseEntity<?> addItem(@PathVariable("userID") String userID, @RequestBody Map<String, Object> params) {
 		try {
-			User user =  new User();
+			User user =  userRepository.findById(userID).get();
 			Item item = new Item();
 			
 			item.setId(params.get("id").toString());
@@ -151,7 +153,9 @@ public class MainController {
 			item.setItem_template((ItemTemplate) params.get("item_template"));
 			item.setAvailable_til(LocalTime.parse(params.get("available_til").toString()));
 			item.setDisc_percent(Integer.parseInt((params.get("disc_percent").toString())));
+			user.getItems().add(item);
 			itemRepository.save(item);
+			userRepository.save(user);
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
