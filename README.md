@@ -25,13 +25,13 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 - [x] User as a supplier can upload their last call food using item template with discount rate
 - [x] User as a buyer can login
 - [x] User as a buyer can see the map and find the restuarnt, grocery stores, cafe, bakery that have last call items on sales 
-- [] User as a buyer can use filter to show suppliers based on distance, type (restaurant, grocery), percentage of discount
-- [] User as a buyer can follow their favorite supplier
-- [] User as a buyer can get a notification from following supplier once supplier put last call item on sales
+- [ ] User as a buyer can use filter to show suppliers based on distance, type (restaurant, grocery), percentage of discount
+- [ ] User as a buyer can follow their favorite supplier
+- [ ] User as a buyer can get a notification from following supplier once supplier put last call item on sales
 - [x] User as a buyer can pick an item that want to purchase and resever it
-- [] User as a buyer can pay for the purchase
+- [ ] User as a buyer can pay for the purchase
 - [x] User as a buyer can see the QRcode generated for confirmation
-- [] User as a buyer can navigate to the store in the app
+- [ ] User as a buyer can navigate to the store in the app
 
  
 
