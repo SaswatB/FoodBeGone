@@ -7,9 +7,11 @@
 ## Inspiration
 **Reducing food waste**-<br/> 
 Roughly one third of the food produced in the world for human consumption every year — approximately 1.3 billion tonnes — gets lost or wasted according to Food and Agriculture Organization of the United Nations. <br/><br/>
-**Restaurant/grocery/bakery demand validation**-<br/> 
+**Restaurant/grocery/bakery demand validation**<br/> 
 Most restaurants, grocery and bakery stores are wasting an additional 25% of their net income and adding up to 15% to food cots. <br/>
 
+![pizza](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/pizzaplace.png)
+![peetcoffee](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/peets.jpg)
 
 ## What it does
 -Allows the restaurant to reduce the food waste <br/>
