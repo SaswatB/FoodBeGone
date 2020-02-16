@@ -31,8 +31,8 @@ export function Transactions() {
                             timestamp: transaction.timestamp,
                             amount: transaction.amount,
                             token: transaction.token,
-                            // TODO: Count is hard-coded, 
-                            item: {count: 2, template: {name: transaction.item.item_template.name}}
+                            // TODO: Count is hard-coded,
+                            item: {count: transaction.purchased_count, template: {name: transaction.item.item_template.name}}
                         }
                         console.log(t);
                         txs.push(t);
