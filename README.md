@@ -43,7 +43,7 @@ One of the biggest challenges we faced was integrating with Google Calendar. Acc
 ## Accomplishments that we'are proud of
 
 ## What we learned
--Through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown way in most of the time.
+-Before doing the store visit survey, we thought that restaurants were buying materials to some extent in anticipation of demand. However, through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown away most of the time.
 
 ## What's next for FoodBeGone
 
