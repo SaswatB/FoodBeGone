@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import { SERVER } from "../../constants";
 import "./Transaction.css"
 
 export function Transactions() {
@@ -17,7 +18,7 @@ export function Transactions() {
     useEffect(() => {
         const call = async () => {
             const axios = require('axios');
-            const value = await axios.get('http://localhost:8080/users/4f43acf0-5df7-45c7-b759-6d42cacf6f2a/transactions')
+            const value = await axios.get(`http://${SERVER}/users/4f43acf0-5df7-45c7-b759-6d42cacf6f2a/transactions`)
                 .then(function (response) {
                     // handle success
                     console.log(response);
