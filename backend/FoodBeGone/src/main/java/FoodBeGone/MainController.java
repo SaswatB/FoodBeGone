@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -53,8 +54,14 @@ public class MainController {
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}
 	
+	@GetMapping("user/{userId}/items/template")
+	public ResponseEntity<List<ItemTemplate>> getItemTemplate() {
+		return new ResponseEntity<List<ItemTemplate>>(
+				iterableToList(itemTemplateRepository.findAll()), 
+				HttpStatus.OK);
+	}
 	
-	@PostMapping("/items/template")
+	@PostMapping("user/{userId}/items/template")
 	public ResponseEntity<?> addItemTemplate(@RequestBody Map<String, Object> params) {
 		try {
 			ItemTemplate template = new ItemTemplate();
@@ -71,19 +78,49 @@ public class MainController {
 	}
 	
 	
-	@GetMapping("/items/template")
-	public ResponseEntity<List<ItemTemplate>> getItemTemplate() {
-		return new ResponseEntity<List<ItemTemplate>>(
-				iterableToList(itemTemplateRepository.findAll()), 
-				HttpStatus.OK);
-	}
-	
-	
 	
 	private static <T> List<T> iterableToList(Iterable<T> iterable){
 		List<T> list = new ArrayList<T>();
 		iterable.forEach(list::add);
 		return list;
 	}
+
+
+	// getting a list of items
+	@GetMapping("user/{userId}/items")
+	public ResponseEntity<List<Item>> getAllItems(){
+		return new ResponseEntity<List<Item>>(
+			iterableToList(itemRepository.findAll()), 
+			HttpStatus.OK);
+	}
+
+
+	// getting a specific item
+	@GetMapping("user/{userId}/items/{itemId}")
+	public ResponseEntity<Item> getItem(@PathVariable String itemId){
+		return new ResponseEntity<Item>(
+			itemRepository.findById(itemId).get(),
+			HttpStatus.OK);
+	}
+
+	@PostMapping("user/{userId}/item")
+	public ResponseEntity<?> addItem(@RequestBody Map<String, Object> params) {
+		try {
+			User user =  new User();
+			Item item = new Item();
+			
+			item.setId(params.get("id").toString());
+			item.setCount(Integer.parseInt((params.get("count").toString())));
+			item.setCount_left(Integer.parseInt((params.get("count_left").toString())));
+			item.setItem_template((ItemTemplate) params.get("item_template"));
+			item.setAvailable_til(LocalTime.parse(params.get("available_til").toString()));
+			item.setDisc_percent(Integer.parseInt((params.get("disc_percent").toString())));
+			itemRepository.save(item);
+		}catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(null);
+	}
+
 	
 }

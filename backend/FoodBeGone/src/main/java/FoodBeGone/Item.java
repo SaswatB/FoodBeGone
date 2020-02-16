@@ -15,7 +15,8 @@ public class Item {
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
-	private int count;
+    private int count;
+    private int count_left;
 	@ManyToOne
 	private ItemTemplate item_template;
 	private LocalTime available_til;
@@ -61,4 +62,11 @@ public class Item {
 		this.disc_percent = disc_percent;
 	}
 
+    public int getCount_left() {
+        return count_left;
+    }
+
+    public void setCount_left(int count_left){
+        this.count_left = count_left;
+    }
 }
