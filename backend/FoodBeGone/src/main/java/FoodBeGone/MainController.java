@@ -89,8 +89,8 @@ public class MainController {
 	}
 
 	@GetMapping("/users/{userId}/transactions")
-	public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("userID") String userID) {
-		List<Item> items = itemRepository.findAllByUserId(userID);
+	public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("userId") String userId) {
+		List<Item> items = itemRepository.findAllByUserId(userId);
 		List<Transaction> transactions = new ArrayList<Transaction>();
 		for (Item i : items) {
 			transactions.addAll(transactionRepository.findAllByItemId(i.getId()));
@@ -99,7 +99,7 @@ public class MainController {
 	}
 
 	@GetMapping("/users/{userId}/transactions/{transaction_id}")
-	public ResponseEntity<Transaction> getTransactionById(@PathVariable("userID") String userID,
+	public ResponseEntity<Transaction> getTransactionById(@PathVariable("userId") String userId,
 			@PathVariable("transaction_id") String transaction_id) {
 		return new ResponseEntity<Transaction>(transactionRepository.findById(transaction_id).get(), HttpStatus.OK);
 	}
@@ -107,7 +107,7 @@ public class MainController {
 	@Transactional
 	@PostMapping("/users/{userId}/transactions")
 	public ResponseEntity<Transaction> createTransaction(@PathVariable("userId") String userId,
-			Map<String, Object> params) {
+			@RequestBody Map<String, Object> params) {
 		Transaction transaction = new Transaction();
 		Item item = itemRepository.findById(params.get("item_id").toString()).get();
 		ItemTemplate itemTemplate = itemTemplateRepository.findById(item.getItem_template_id()).get();
@@ -118,7 +118,7 @@ public class MainController {
 		transaction.setTimestamp(LocalTime.now());
 		transaction.setToken(params.get("token").toString());
 
-		item.setCount(item.getCount() - transaction.getPurchased_count());
+		item.setCount_left(item.getCount_left() - transaction.getPurchased_count());
 
 		double amount = item.getDisc_percent() * transaction.getPurchased_count() * itemTemplate.getPrice();
 
