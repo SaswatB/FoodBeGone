@@ -1,6 +1,6 @@
 package FoodBeGone;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +18,7 @@ public class Transaction {
 	
 	@OneToOne
 	private Item item;
-	private LocalTime timestamp;
+	private LocalDateTime timestamp;
 	private int purchased_count;
 	private String buyer_id;
 	private int amount;
@@ -40,11 +40,11 @@ public class Transaction {
 		this.item = item;
 	}
 
-	public LocalTime getTimestamp() {
+	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(LocalTime timestamp) {
+	public void setTimestamp(LocalDateTime timestamp) {
 		this.timestamp = timestamp;
 	}
 

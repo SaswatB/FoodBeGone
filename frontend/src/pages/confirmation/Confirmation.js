@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import QRCode from "qrcode.react";
 import "./Confirmation.css"
@@ -24,6 +24,13 @@ export function Confirmation() {
         }
     );
     // todo api call
+    useEffect(() => {
+        const call = async () => {
+            const value = await axios...
+            setTransaction(value);
+        };
+        call();
+    }, [])
 
     return (<div className="confirmation">
         {

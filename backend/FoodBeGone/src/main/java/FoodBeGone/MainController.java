@@ -2,10 +2,10 @@ package FoodBeGone;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.time.ZoneOffset;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -115,14 +115,14 @@ public class MainController {
 		transaction.setItem(item);
 		transaction.setBuyer_id(params.get("buyer_id").toString());
 		transaction.setPurchased_count(Integer.parseInt(params.get("purchased_count").toString()));
-		transaction.setTimestamp(LocalTime.now());
+		transaction.setTimestamp(LocalDateTime.now());
 		transaction.setToken(params.get("token").toString());
 
 		item.setCount_left(item.getCount_left() - transaction.getPurchased_count());
 
-		double amount = item.getDisc_percent() * transaction.getPurchased_count() * itemTemplate.getPrice();
+		double amount = (1 - item.getDisc_percent()) * transaction.getPurchased_count() * itemTemplate.getPrice();
 
-		transaction.setAmount((int) amount * 100);
+		transaction.setAmount((int) amount);
 
 		User user = userRepository.findById(userId).get();
 
@@ -157,9 +157,7 @@ public class MainController {
 		try {
 			User user = userRepository.findById(userId).get();
 			Item item = new Item();
-			ItemTemplate itemTemplate = itemTemplateRepository.findById(params.get("item_template_id").toString())
-					.get();
-
+			ItemTemplate itemTemplate = itemTemplateRepository.findById(params.get("item_template_id").toString()).get();
 			LocalDateTime ldt = LocalDateTime.parse(params.get("available_til").toString());
 			ldt.atOffset(ZoneOffset.UTC);
 
