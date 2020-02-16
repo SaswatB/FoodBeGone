@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.time.ZoneOffset;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -161,6 +162,7 @@ public class MainController {
 
 			LocalDateTime ldt = LocalDateTime.parse(params.get("available_til").toString());
 			ldt.atOffset(ZoneOffset.UTC);
+
 			item.setCount(Integer.parseInt((params.get("count").toString())));
 			item.setCount_left(Integer.parseInt((params.get("count_left").toString())));
 			item.setItem_template_id(params.get("item_template_id").toString());
