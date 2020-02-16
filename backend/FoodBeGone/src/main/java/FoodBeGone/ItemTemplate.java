@@ -1,5 +1,6 @@
 package FoodBeGone;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,6 +17,8 @@ public class ItemTemplate {
 	private String name;
 	private int price;
 	private String description;
+	
+	@Column(columnDefinition = "TEXT")
 	private String image;
 	
 	@ManyToOne
