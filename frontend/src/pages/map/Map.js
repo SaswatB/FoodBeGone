@@ -125,7 +125,6 @@ export function Map() {
     }, []);
 
     useEffect(() => {
-
         if (map && locations) {
             // add a marker for each location
             locations.forEach((location) => {
@@ -143,7 +142,25 @@ export function Map() {
                         // clear location item count
                         setSelectedLocationItems(undefined);
                         // todo api call to get item count
-                        setSelectedLocationItems([]);
+
+
+                        const call = async () => {
+                            const axios = require('axios');
+                            const value = await axios.get(`http://${SERVER}/users/${location.id}/items`)
+                                .then(function (response) {
+                                    // handle success
+                                    console.log(response);
+                                    setSelectedLocationItems(response.data);
+                                })
+                                .catch(function (error) {
+                                    // handle error
+                                    console.log(error);
+                                })
+                                .then(function () {
+                                    // always executed
+                                });
+                        }
+                        call();
                     }, 10);
                 })
                 new tt.Marker({element}).setLngLat([location.lng, location.lat]).addTo(map);
