@@ -1,6 +1,5 @@
 package FoodBeGone;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -82,8 +83,15 @@ public class MainController {
 				HttpStatus.OK);
 	}
 	
-	@PostMapping("/transaction")
-	public ResponseEntity<Transaction> createTransaction(Map<String,Object> params){
+	@GetMapping("/users/{userID}/transactions")
+	public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("userID") String userID){
+		User user = userRepository.findById(userID).get();
+		return new ResponseEntity<List<Transaction>>(user.getTransactions(), HttpStatus.OK);
+	}
+	
+	@Transactional
+	@PostMapping("/users/{userID}/transactions")
+	public ResponseEntity<Transaction> createTransaction(@PathVariable("userID") String userID, Map<String,Object> params){
 		Transaction transaction = new Transaction();
 		
 		transaction.setItem_id(params.get("item_id").toString());
@@ -92,9 +100,21 @@ public class MainController {
 		transaction.setTimestamp(LocalTime.now());
 		
 		Item item = itemRepository.findById(transaction.getItem_id()).get();
+		item.setCount(item.getCount() - transaction.getPurchased_count());
 		
+		double amount = item.getDisc_percent() 
+				* transaction.getPurchased_count()
+				* item.getItem_template().getPrice();
 		
+		transaction.setAmount(amount);
+		
+		User user = userRepository.findById(userID).get();
+		user.getTransactions().add(transaction);
+		transactionRepository.save(transaction);
+		itemRepository.save(item);
 	}
+	
+	
 	
 	private static <T> List<T> iterableToList(Iterable<T> iterable){
 		List<T> list = new ArrayList<T>();

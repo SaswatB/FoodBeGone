@@ -1,6 +1,7 @@
 package FoodBeGone;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +32,12 @@ public class User {
 	private LocalTime open_time;
 	
 	private LocalTime close_time;
+	
+	private List<Item> items;
+	
+	private List<ItemTemplate> itemTemplates;
+	
+	private List<Transaction> transactions;
 
 	public String getId() {
 		return id;
@@ -102,5 +109,29 @@ public class User {
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
+	}
+
+	public List<Item> getItems() {
+		return items;
+	}
+
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+
+	public List<ItemTemplate> getItemTemplates() {
+		return itemTemplates;
+	}
+
+	public void setItemTemplates(List<ItemTemplate> itemTemplates) {
+		this.itemTemplates = itemTemplates;
+	}
+
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
 	}
 }

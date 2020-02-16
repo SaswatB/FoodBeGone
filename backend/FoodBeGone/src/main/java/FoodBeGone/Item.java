@@ -19,7 +19,7 @@ public class Item {
 	@ManyToOne
 	private ItemTemplate item_template;
 	private LocalTime available_til;
-	private int disc_percent;
+	private float disc_percent;
 
 	public String getId() {
 		return id;
@@ -53,11 +53,11 @@ public class Item {
 		this.available_til = available_til;
 	}
 
-	public int getDisc_percent() {
+	public float getDisc_percent() {
 		return disc_percent;
 	}
 
-	public void setDisc_percent(int disc_percent) {
+	public void setDisc_percent(float disc_percent) {
 		this.disc_percent = disc_percent;
 	}
 
