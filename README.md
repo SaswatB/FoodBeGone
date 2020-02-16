@@ -28,7 +28,7 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 - [ ] User as a supplier can submit a taxation  information in synced taxation software (turbotax) with a click
 - [x] User as a buyer can login
 - [x] User as a buyer can see the map and find the restuarnt, grocery stores, cafe, bakery that have last call items on sales 
-- [ ] User as a buyer can use filter to show suppliers based on distance, type (restaurant, grocery), percentage of discount (TomTom's Search API)
+- [ ] User as a buyer can use filter to show suppliers based on distance, type (restaurant, grocery), percentage of discount, duration to get there (TomTom's Search API, Geocoding API, Routing API)
 - [ ] User as a buyer can follow their favorite supplier
 - [ ] User as a buyer can get a notification from following supplier once supplier put last call item on sales
 - [x] User as a buyer can pick an item that want to purchase and resever it
@@ -115,7 +115,9 @@ Built with<br/><br/>
 -TomTom API (https://developer.tomtom.com/) <br/>
 * Map Display API <br/>
    * Cusotom Makrer
-* Reachable region <br/>
+* Routing API
+  * Reachable region 
+  <br/>
 
 
 
