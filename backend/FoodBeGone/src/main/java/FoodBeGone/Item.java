@@ -1,6 +1,5 @@
 package FoodBeGone;
 
-import java.util.Date;
 import java.time.LocalTime;
 
 import javax.persistence.Entity;
@@ -11,13 +10,15 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Item {
-    @Id
+	@Id
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
-    
-    private String id;
-    private int count;    
-    private ItemTemplate item_template;
-    private LocalTime available_til;
-    private int disc_percent;
+	private String id;
+	private int count;
+	private ItemTemplate item_template;
+	private LocalTime available_til;
+	private int disc_percent;
+
+	
+	
 }
