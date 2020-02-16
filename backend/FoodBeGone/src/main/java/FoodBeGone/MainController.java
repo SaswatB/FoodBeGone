@@ -97,6 +97,12 @@ public class MainController {
 		return new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
 	}
 
+	@GetMapping("/users/{userId}/transactions/{transaction_id}")
+	public ResponseEntity<Transaction> getTransactionById(@PathVariable("userID") String userID,
+			@PathVariable("transaction_id") String transaction_id) {
+		return new ResponseEntity<Transaction>(transactionRepository.findById(transaction_id).get(), HttpStatus.OK);
+	}
+
 	@Transactional
 	@PostMapping("/users/{userId}/transactions")
 	public ResponseEntity<Transaction> createTransaction(@PathVariable("userId") String userId,
