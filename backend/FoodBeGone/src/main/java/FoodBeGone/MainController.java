@@ -57,14 +57,14 @@ public class MainController {
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}
 	
-	@GetMapping("user/{userId}/items/template")
-	public ResponseEntity<List<ItemTemplate>> getItemTemplate() {
+	@GetMapping("user/{userId}/items/templates")
+	public ResponseEntity<List<ItemTemplate>> getItemTemplate(@PathVariable("userId") String userId) {
 		return new ResponseEntity<List<ItemTemplate>>(
 				iterableToList(itemTemplateRepository.findAll()), 
 				HttpStatus.OK);
 	}
 	
-	@PostMapping("user/{userId}/items/template")
+	@PostMapping("user/{userId}/items/templates")
 	public ResponseEntity<?> addItemTemplate(@RequestBody Map<String, Object> params) {
 		try {
 			ItemTemplate template = new ItemTemplate();
@@ -82,15 +82,15 @@ public class MainController {
 	}
 	
 	
-	@GetMapping("/users/{userID}/transactions")
+	@GetMapping("/users/{userId}/transactions")
 	public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("userID") String userID){
 		User user = userRepository.findById(userID).get();
 		return new ResponseEntity<List<Transaction>>(user.getTransactions(), HttpStatus.OK);
 	}
 	
 	@Transactional
-	@PostMapping("/users/{userID}/transactions")
-	public ResponseEntity<Transaction> createTransaction(@PathVariable("userID") String userID, Map<String,Object> params){
+	@PostMapping("/users/{userId}/transactions")
+	public ResponseEntity<Transaction> createTransaction(@PathVariable("userId") String userId, Map<String,Object> params){
 		Transaction transaction = new Transaction();
 		
 		transaction.setItem_id(params.get("item_id").toString());
@@ -107,7 +107,7 @@ public class MainController {
 		
 		transaction.setAmount(amount);
 		
-		User user = userRepository.findById(userID).get();
+		User user = userRepository.findById(userId).get();
 		user.getTransactions().add(transaction);
 		transactionRepository.save(transaction);
 		itemRepository.save(item);
@@ -139,12 +139,13 @@ public class MainController {
 			itemRepository.findById(itemId).get(),
 			HttpStatus.OK);
 	}
+	
 
 	@Transactional
 	@PostMapping("user/{userId}/item")
-	public ResponseEntity<?> addItem(@PathVariable("userID") String userID, @RequestBody Map<String, Object> params) {
+	public ResponseEntity<?> addItem(@PathVariable("userId") String userId, @RequestBody Map<String, Object> params) {
 		try {
-			User user =  userRepository.findById(userID).get();
+			User user =  userRepository.findById(userId).get();
 			Item item = new Item();
 			
 			item.setId(params.get("id").toString());
