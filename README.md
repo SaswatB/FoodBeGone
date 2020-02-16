@@ -23,6 +23,7 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 - [x] User as a supplier can login
 - [x] User as a supplier can upload their item template (food menu)
 - [x] User as a supplier can upload their last call food using item template with discount rate
+- [x] User as a supplier can select the available pickup time
 - [x] User as a buyer can login
 - [x] User as a buyer can see the map and find the restuarnt, grocery stores, cafe, bakery that have last call items on sales 
 - [ ] User as a buyer can use filter to show suppliers based on distance, type (restaurant, grocery), percentage of discount
