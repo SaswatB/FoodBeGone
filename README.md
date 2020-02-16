@@ -37,6 +37,9 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
  
 
 ## Demo (Image and video)
+**GIF video**
+![video](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/Screen%20Capture%20on%202020-02-16%20at%2012-06-09.gif)
+
 **Supplier**
 
 
