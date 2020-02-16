@@ -1,10 +1,10 @@
 package FoodBeGone;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -67,7 +67,10 @@ public class MainController {
 	}
 	
 	@PostMapping("users/{userId}/items/templates")
-	public ResponseEntity<?> addItemTemplate(@RequestBody Map<String, Object> params) {
+	public ResponseEntity<?> addItemTemplate(@PathVariable("userId") String userId, @RequestBody Map<String, Object> params) {
+		
+		User user = userRepository.findById(userId).get();
+		
 		try {
 			ItemTemplate template = new ItemTemplate();
 			template.setName(params.get("name").toString());
@@ -75,8 +78,11 @@ public class MainController {
 			template.setPrice(Double.parseDouble((params.get("price").toString())));
 			template.setImage(params.get("image").toString());
 			
+			user.getItemTemplates().add(template);
 			itemTemplateRepository.save(template);
+			userRepository.save(user);
 		}catch (Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(null);
@@ -93,18 +99,20 @@ public class MainController {
 	@PostMapping("/users/{userId}/transactions")
 	public ResponseEntity<Transaction> createTransaction(@PathVariable("userId") String userId, Map<String,Object> params){
 		Transaction transaction = new Transaction();
+		Item item = itemRepository.findById(params.get("item_id").toString()).get();
+		ItemTemplate itemTemplate = itemTemplateRepository.findById(item.getItem_template_id()).get();
 		
-		transaction.setItem_id(params.get("item_id").toString());
+		transaction.setItem(item);
 		transaction.setBuyer_id(params.get("buyer_id").toString());
 		transaction.setPurchased_count(Integer.parseInt(params.get("purchased_count").toString()));
 		transaction.setTimestamp(LocalTime.now());
+		transaction.setToken(params.get("token").toString());
 		
-		Item item = itemRepository.findById(transaction.getItem_id()).get();
 		item.setCount(item.getCount() - transaction.getPurchased_count());
 		
 		double amount = item.getDisc_percent() 
 				* transaction.getPurchased_count()
-				* item.getItem_template().getPrice();
+				* itemTemplate.getPrice();
 		
 		transaction.setAmount(amount);
 		
@@ -149,16 +157,16 @@ public class MainController {
 			User user =  userRepository.findById(userId).get();
 			Item item = new Item();
 			
-			item.setId(params.get("id").toString());
 			item.setCount(Integer.parseInt((params.get("count").toString())));
 			item.setCount_left(Integer.parseInt((params.get("count_left").toString())));
-			item.setItem_template((ItemTemplate) params.get("item_template"));
+			item.setItem_template_id(params.get("item_template_id").toString());
 			item.setAvailable_til(LocalDateTime.parse(params.get("available_til").toString()));
-			item.setDisc_percent(Integer.parseInt((params.get("disc_percent").toString())));
+			item.setDisc_percent(Float.parseFloat((params.get("disc_percent").toString())));
 			user.getItems().add(item);
 			itemRepository.save(item);
 			userRepository.save(user);
 		}catch (Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(null);
@@ -167,7 +175,7 @@ public class MainController {
 	
 	@GetMapping("/search")
 	public ResponseEntity<List<User>> search(@RequestParam float lon, @RequestParam float lat, @RequestParam int miles){
-		
+		return null;
 	}
 
 	
