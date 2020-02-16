@@ -20,7 +20,7 @@ export function Map() {
     const [map, setMap] = useState();
     const [userLocation, setUserLocation] = useState();
     const [locations, setLocations] = useState([
-        {name: "Southside Spirit House", lat: 37.7872183, lng: -122.3968268},
+        {id: "4f43acf0-5df7-45c7-b759-6d42cacf6f2a", name: "Southside Spirit House", lat: 37.7872183, lng: -122.3968268},
         {name: "Red Dog", lat: 37.7855169, lng: -122.3954392},
     ]);
 
@@ -128,7 +128,8 @@ export function Map() {
         <>
             {selectedLocation && <div className="location-popup" style={{top: selectedLocation.y, left: selectedLocation.x}} onMouseDown={(event) => event.stopPropagation()}>
                 <h6>{selectedLocation.location.name}</h6>
-                {selectedLocationItems !== undefined && <>{selectedLocationItems.length} items available</>}
+                {selectedLocationItems !== undefined && <>{selectedLocationItems.length} items available</>} <br/>
+                <Link to={`/items/${selectedLocation.location.id}`}>View Items</Link>
             </div>}
             <div id="map" style={{height: "100%"}}/>
             <div className="my-location-control" onClick={showMyLocation}></div>

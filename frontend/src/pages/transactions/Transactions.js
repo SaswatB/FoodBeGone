@@ -6,7 +6,7 @@ import "./Transaction.css"
 export function Transactions() {
     const [transactions, setTransactions] = useState([
         {
-            id: 0,
+            id: "e1ab77c5-1b59-473b-a827-c92ff1747a21",
             timestamp: "2020-02-16T05:14:34.960Z",
             amount: 1299,
             token: "26b4bc7b70d0feb4018a171cc3d3e4fe1c38671e5170ac2dc6d72642344c",
