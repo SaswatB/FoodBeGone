@@ -33,9 +33,7 @@ public class MainController {
 
 	@GetMapping("/users")
 	public @ResponseBody List<User> getAllUsers() {
-		List<User> users = new ArrayList<User>();
-		userRepository.findAll().forEach(users::add);
-		return users;
+		return iterableToList(userRepository.findAll());
 	}
 	
 	@PostMapping("/users")
@@ -74,8 +72,18 @@ public class MainController {
 	
 	
 	@GetMapping("/items/template")
-	public ResponseEntity<?> getItemTemplate(@RequestBody Map<String, Object> params) {
-		return null;
+	public ResponseEntity<List<ItemTemplate>> getItemTemplate() {
+		return new ResponseEntity<List<ItemTemplate>>(
+				iterableToList(itemTemplateRepository.findAll()), 
+				HttpStatus.OK);
+	}
+	
+	
+	
+	private static <T> List<T> iterableToList(Iterable<T> iterable){
+		List<T> list = new ArrayList<T>();
+		iterable.forEach(list::add);
+		return list;
 	}
 	
 }
