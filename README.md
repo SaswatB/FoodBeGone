@@ -25,8 +25,8 @@ Pick and Reserve Your Food for Pickup!
 ## How we built it
 Built with<br/><br/>
 **Client-Side**<br/>
--html/css
--react.js
+-html/css <br/>
+-react.js <br/>
 -TomTom API (https://developer.tomtom.com/) <br/>
 -map <br/>
 -reachable region <br/>
