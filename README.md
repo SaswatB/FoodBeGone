@@ -45,10 +45,14 @@ Version 2 - connector
  
 
 ## Demo (Image and video)
-**GIF video**
+**GIF videos**
+**Buyer video**
+![video](https://user-images.githubusercontent.com/2976514/74612273-b0e19600-50b8-11ea-82d5-12e91c7c933b.gif)
+
+**Supplier video**
 ![video](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/item%20add.gif)
 
-**Supplier**
+**Supplier Screenshots**
 
 
 1.login
@@ -68,7 +72,7 @@ Version 2 - connector
 
 ![Adding item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws4_item_filled.png)
 
-**Buyer**
+**Buyer Screenshots**
 
 1. login
 
