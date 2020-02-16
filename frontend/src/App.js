@@ -7,29 +7,40 @@ import {
 } from "react-router-dom";
 import { NavBar } from './components/navbar/NavBar';
 import { Map } from './pages/map/Map';
-import { About } from './pages/about/About';
+import { Items } from './pages/items/Items';
 import { Users } from './pages/users/Users';
 import { Transactions } from './pages/transactions/Transactions';
 import { Confirmation } from "./pages/confirmation/Confirmation";
+import { ItemTemplateForm } from "./pages/itemtemplateform/ItemTemplateForm";
+import { ItemInformationForm } from './pages/iteminformationform/ItemInformationForm';
+
 
 export default function App() {
   return (
     <Router>
       <div style={{display: "flex", flexDirection: "column", height: "100vh"}}>
         <Switch>
-          <Route path="/about">
+          <Route path="/items/:supplier_id">
             <NavBar />
-            <About />
+            <Items />
           </Route>
           <Route path="/users">
             <NavBar />
             <Users />
           </Route>
+          <Route path="/itemtemplateform">
+            <NavBar />
+            <ItemTemplateForm />
+          </Route>
+          <Route path="/iteminformationform">
+            <NavBar />
+            <ItemInformationForm />
+          </Route>
           <Route path="/transactions">
             <NavBar />
             <Transactions />
           </Route>
-          <Route path="/confirmation">
+          <Route path="/confirmation/:transaction_id">
             <NavBar />
             <Confirmation />
           </Route>

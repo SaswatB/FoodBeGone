@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,11 +35,13 @@ public class MainController {
 	@Autowired
 	private TransactionRepository transactionRepository;
 
+	@CrossOrigin
 	@GetMapping("/users")
 	public @ResponseBody List<User> getAllUsers() {
 		return iterableToList(userRepository.findAll());
 	}
 
+	@CrossOrigin
 	@PostMapping("/users")
 	public ResponseEntity<?> addUser(@RequestBody Map<String, Object> params) {
 		try {
@@ -60,12 +63,14 @@ public class MainController {
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}
 
+	@CrossOrigin
 	@GetMapping("users/{userId}/items/templates")
 	public ResponseEntity<List<ItemTemplate>> getItemTemplate(@PathVariable("userId") String userId) {
 		return new ResponseEntity<List<ItemTemplate>>(iterableToList(itemTemplateRepository.findAllByUserId(userId)),
 				HttpStatus.OK);
 	}
 
+	@CrossOrigin
 	@PostMapping("users/{userId}/items/templates")
 	public ResponseEntity<?> addItemTemplate(@PathVariable("userId") String userId,
 			@RequestBody Map<String, Object> params) {
@@ -80,7 +85,6 @@ public class MainController {
 			template.setUser(user);
 
 			itemTemplateRepository.save(template);
-			userRepository.save(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -88,6 +92,7 @@ public class MainController {
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}
 
+	@CrossOrigin
 	@GetMapping("/users/{userId}/transactions")
 	public ResponseEntity<List<Transaction>> getTransactions(@PathVariable("userId") String userId) {
 		List<Item> items = itemRepository.findAllByUserId(userId);
@@ -98,12 +103,14 @@ public class MainController {
 		return new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
 	}
 
+	@CrossOrigin
 	@GetMapping("/users/{userId}/transactions/{transaction_id}")
 	public ResponseEntity<Transaction> getTransactionById(@PathVariable("userId") String userId,
 			@PathVariable("transaction_id") String transaction_id) {
 		return new ResponseEntity<Transaction>(transactionRepository.findById(transaction_id).get(), HttpStatus.OK);
 	}
 
+	@CrossOrigin
 	@Transactional
 	@PostMapping("/users/{userId}/transactions")
 	public ResponseEntity<Transaction> createTransaction(@PathVariable("userId") String userId,
@@ -120,9 +127,7 @@ public class MainController {
 
 		item.setCount_left(item.getCount_left() - transaction.getPurchased_count());
 
-		double amount = (1 - item.getDisc_percent()) * transaction.getPurchased_count() * itemTemplate.getPrice();
-
-		transaction.setAmount((int) amount);
+		transaction.setAmount( (int) ((1 - item.getDisc_percent()) * transaction.getPurchased_count() * itemTemplate.getPrice()));
 
 		User user = userRepository.findById(userId).get();
 
@@ -139,6 +144,7 @@ public class MainController {
 	}
 
 	// getting a list of items
+	@CrossOrigin
 	@GetMapping("users/{userId}/items")
 	public ResponseEntity<List<Item>> getAllItems(@PathVariable("userId") String userID) {
 		User user = userRepository.findById(userID).get();
@@ -146,11 +152,13 @@ public class MainController {
 	}
 
 	// getting a specific item
+	@CrossOrigin
 	@GetMapping("users/{userId}/items/{itemId}")
 	public ResponseEntity<Item> getItem(@PathVariable("itemId") String itemId, @PathVariable("userId") String userID) {
 		return new ResponseEntity<Item>(itemRepository.findById(itemId).get(), HttpStatus.OK);
 	}
 
+	@CrossOrigin
 	@Transactional
 	@PostMapping("users/{userId}/items")
 	public ResponseEntity<?> addItem(@PathVariable("userId") String userId, @RequestBody Map<String, Object> params) {
@@ -179,6 +187,7 @@ public class MainController {
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}
 
+	@CrossOrigin
 	@GetMapping("/search")
 	public ResponseEntity<List<User>> search(@RequestParam float buyerLat, @RequestParam float buyerLon,
 			@RequestParam int miles) {
