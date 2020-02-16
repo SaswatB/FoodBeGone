@@ -4,6 +4,9 @@
 -Web application that lets restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices. <br/>
 -Web application (mobile friendly) built using TomTom’s Map API
 
+Pick and Reserve Your Food for Pickup!
+![FoodBeGone ItemsListAndReserveForm](https://user-images.githubusercontent.com/2976514/74608656-f0e45100-5097-11ea-9fed-31a08c8d103a.gif)
+
 ## Inspiration
 **Reducing food waste**-<br/> 
 Roughly one third of the food produced in the world for human consumption every year — approximately 1.3 billion tonnes — gets lost or wasted according to Food and Agriculture Organization of the United Nations. <br/><br/>
@@ -99,13 +102,6 @@ Version 2 - connector
 6. confirmation
 
 ![confirmation](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb6_confirmation.png)
-
-
-Pick and Reserve Your Food for Pickup!
-![FoodBeGone ItemsListAndReserveForm](https://user-images.githubusercontent.com/2976514/74608656-f0e45100-5097-11ea-9fed-31a08c8d103a.gif)
-
-
-(Devs: db admin info here Issue #6 https://github.com/SaswatB/FoodBeGone/issues/6)
 
 ## How we built it
 Built with<br/><br/>
