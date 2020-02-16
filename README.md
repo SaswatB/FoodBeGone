@@ -46,7 +46,7 @@ Version 2 - connector
 
 ## Demo (Image and video)
 **GIF video**
-![video](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/Screen%20Capture%20on%202020-02-16%20at%2012-06-09.gif)
+![video](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/item%20add.gif)
 
 **Supplier**
 
