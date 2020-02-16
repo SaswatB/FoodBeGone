@@ -92,7 +92,7 @@ Version 2 - connector
 
 ![item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb4_item.png)
 
-5. resever
+5. reserve
 
 ![reserve](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb5_purchase.png)
 
