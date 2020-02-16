@@ -93,7 +93,6 @@ export function Map() {
                 const value = await axios.get(`http://${SERVER}/search?buyerLat=${userCoordinates.latitude}&buyerLon=${userCoordinates.longitude}&miles=${4}`)
                     .then(function (response) {
                         // handle success
-                        console.log(response);
                         const response_users = response.data
                         var index = 0;
                         var users = [];
@@ -105,7 +104,6 @@ export function Map() {
                                 lat: user.lat,
                                 lng: user.lon,
                             }
-                            console.log(t);
                             users.push(t);
                             index++;
                         }
@@ -142,14 +140,11 @@ export function Map() {
                         // clear location item count
                         setSelectedLocationItems(undefined);
                         // todo api call to get item count
-
-
                         const call = async () => {
                             const axios = require('axios');
                             const value = await axios.get(`http://${SERVER}/users/${location.id}/items`)
                                 .then(function (response) {
                                     // handle success
-                                    console.log(response);
                                     setSelectedLocationItems(response.data);
                                 })
                                 .catch(function (error) {

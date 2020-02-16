@@ -21,7 +21,6 @@ export function Transactions() {
             const value = await axios.get(`http://${SERVER}/users/4f43acf0-5df7-45c7-b759-6d42cacf6f2a/transactions`)
                 .then(function (response) {
                     // handle success
-                    console.log(response);
                     const transactions = response.data
                     var index = 0;
                     var txs = [];
@@ -35,7 +34,6 @@ export function Transactions() {
                             // TODO: Count is hard-coded,
                             item: {count: transaction.purchased_count, template: {name: transaction.item.item_template.name}}
                         }
-                        console.log(t);
                         txs.push(t);
                         index++;
                     }
