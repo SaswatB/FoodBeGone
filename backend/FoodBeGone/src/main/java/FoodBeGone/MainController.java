@@ -30,7 +30,6 @@ public class MainController {
 	@Autowired
 	private TransactionRepository transactionRepository;
 	
-	
 
 	@GetMapping("/users")
 	public @ResponseBody List<User> getAllUsers() {
