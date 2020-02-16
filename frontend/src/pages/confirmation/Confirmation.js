@@ -23,13 +23,13 @@ export function Confirmation() {
         }
     );
     // todo api call
-    useEffect(() => {
-        const call = async () => {
-            const value = await axios...
-            setTransaction(value);
-        };
-        call();
-    }, [])
+    // useEffect(() => {
+    //     const call = async () => {
+    //         const value = await axios...
+    //         setTransaction(value);
+    //     };
+    //     call();
+    // }, [])
 
     return (<div className="confirmation">
         {

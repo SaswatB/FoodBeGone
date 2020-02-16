@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import "./Transaction.css"
@@ -14,7 +14,43 @@ export function Transactions() {
         }
     ]);
     // todo api call
+    useEffect(() => {
+        const call = async () => {
+            const axios = require('axios');
+            const value = await axios.get('http://localhost:8080/users/4f43acf0-5df7-45c7-b759-6d42cacf6f2a/transactions')
+                .then(function (response) {
+                    // handle success
+                    console.log(response);
+                    const transactions = response.data
+                    var index = 0;
+                    var txs = [];
+                    while (index < transactions.length) {
+                        const transaction = transactions[index];
+                        const t = {
+                            id: transaction.id,
+                            timestamp: transaction.timestamp,
+                            amount: transaction.amount,
+                            token: transaction.token,
+                            // TODO: Count is hard-coded, 
+                            item: {count: 2, template: {name: transaction.item.item_template.name}}
+                        }
+                        console.log(t);
+                        txs.push(t);
+                        index++;
+                    }
+                    setTransactions(txs);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+                .then(function () {
+                    // always executed
+                });
 
+        };
+        call();
+    }, [])
     return (<div className="transaction-list">
         {
             !transactions
