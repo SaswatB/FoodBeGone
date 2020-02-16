@@ -5,15 +5,7 @@ import { SERVER } from "../../constants";
 import "./Transaction.css"
 
 export function Transactions() {
-    const [transactions, setTransactions] = useState([
-        {
-            id: "e1ab77c5-1b59-473b-a827-c92ff1747a21",
-            timestamp: "2020-02-16T05:14:34.960Z",
-            amount: 1299,
-            token: "26b4bc7b70d0feb4018a171cc3d3e4fe1c38671e5170ac2dc6d72642344c",
-            item: { count: 2, template: {name: 'Tomato'} }
-        }
-    ]);
+    const [transactions, setTransactions] = useState();
     // todo api call
     useEffect(() => {
         const call = async () => {
@@ -37,6 +29,18 @@ export function Transactions() {
                         txs.push(t);
                         index++;
                     }
+
+                    txs.sort((a, b) => {
+                        const a_moment = moment(a.timestamp)
+                        const b_moment = moment(b.timestamp)
+                        if (a_moment.isAfter(b_moment)) {
+                            return -1;
+                        } else if (a_moment.isBefore(b_moment)) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                    })
                     setTransactions(txs);
                 })
                 .catch(function (error) {
