@@ -129,7 +129,7 @@ public class MainController {
 
 		transaction.setAmount( (int) ((1 - item.getDisc_percent()) * transaction.getPurchased_count() * itemTemplate.getPrice()));
 
-		User user = userRepository.findById(userId).get();
+		// User user = userRepository.findById(userId).get();
 
 		transactionRepository.save(transaction);
 		itemRepository.save(item);

@@ -6,6 +6,8 @@ import {
   Link
 } from "react-router-dom";
 import { NavBar } from './components/navbar/NavBar';
+import { Login } from './pages/login/Login';
+import { Register } from './pages/register/Register';
 import { Map } from './pages/map/Map';
 import { Items } from './pages/items/Items';
 import { Users } from './pages/users/Users';
@@ -13,7 +15,7 @@ import { Transactions } from './pages/transactions/Transactions';
 import { Confirmation } from "./pages/confirmation/Confirmation";
 import { ItemTemplateForm } from "./pages/itemtemplateform/ItemTemplateForm";
 import { ItemInformationForm } from './pages/iteminformationform/ItemInformationForm';
-
+import { SupplierHome } from "./pages/supplierhome/SupplierHome";
 
 export default function App() {
   return (
@@ -43,6 +45,16 @@ export default function App() {
           <Route path="/confirmation/:transaction_id">
             <NavBar />
             <Confirmation />
+          </Route>
+          <Route path="/supplierhome">
+            <NavBar />
+            <SupplierHome />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route path="/">
             <Map />

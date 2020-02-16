@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import tt from '@tomtom-international/web-sdk-maps';
 import tts from '@tomtom-international/web-sdk-services';
+import { useUser } from '../../utils/useUser'
 import "./Map.css"
 
 const DEFAULT_MAP_ZOOM = 14;
@@ -17,6 +18,13 @@ function getLocation() {
   }
 
 export function Map() {
+    const [userId, setUserId, userType] = useUser();
+    const history = useHistory();
+
+    if (userType === 'supplier') {
+        history.push('/supplierhome');
+    }
+
     const [map, setMap] = useState();
     const [userLocation, setUserLocation] = useState();
     const [locations, setLocations] = useState([
@@ -40,46 +48,48 @@ export function Map() {
             const userLngLat = [userCoordinates.longitude, userCoordinates.latitude];
             setUserLocation(userLngLat);
 
-            // load tomtom map
-            const loadedMap = await tt.map({
-                key: process.env.REACT_APP_TOM_TOM_API_KEY,
-                style: 'tomtom://vector/1/basic-main',
-                container: 'map',
-                center: userLngLat,
-                zoom: DEFAULT_MAP_ZOOM,
-            });
-
-            // display the reachable range
-            loadedMap.on('load', async () => {
-                const reachableRange = await tts.services.calculateReachableRange({
+            try {
+                // load tomtom map
+                const loadedMap = await tt.map({
                     key: process.env.REACT_APP_TOM_TOM_API_KEY,
-                    origin: userLngLat,
-                    travelMode: 'car',
-                    timeBudgetInSec: 300,
-                }).go()
-                loadedMap.addLayer({
-                    id: 'overlay',
-                    type: 'fill',
-                    source: {
-                        type: 'geojson',
-                        data: reachableRange.toGeoJson()
-                    },
-                    layout: {},
-                    paint: {
-                        'fill-color': '#80cbc4',
-                        'fill-opacity': 0.3,
-                        'fill-outline-color': 'black'
-                    }
+                    style: 'tomtom://vector/1/basic-main',
+                    container: 'map',
+                    center: userLngLat,
+                    zoom: DEFAULT_MAP_ZOOM,
                 });
-            });
 
-            // add user location market
-            const element = document.createElement('div');
-            element.className = 'marker-user-location';
-            new tt.Marker({element}).setLngLat(userLngLat).addTo(loadedMap);
+                // display the reachable range
+                loadedMap.on('load', async () => {
+                    const reachableRange = await tts.services.calculateReachableRange({
+                        key: process.env.REACT_APP_TOM_TOM_API_KEY,
+                        origin: userLngLat,
+                        travelMode: 'car',
+                        timeBudgetInSec: 300,
+                    }).go()
+                    loadedMap.addLayer({
+                        id: 'overlay',
+                        type: 'fill',
+                        source: {
+                            type: 'geojson',
+                            data: reachableRange.toGeoJson()
+                        },
+                        layout: {},
+                        paint: {
+                            'fill-color': '#80cbc4',
+                            'fill-opacity': 0.3,
+                            'fill-outline-color': 'black'
+                        }
+                    });
+                });
 
-            // todo api call
-            setMap(loadedMap);
+                // add user location market
+                const element = document.createElement('div');
+                element.className = 'marker-user-location';
+                new tt.Marker({element}).setLngLat(userLngLat).addTo(loadedMap);
+
+                // todo api call
+                setMap(loadedMap);
+            } catch(e) {console.error(e);}
         })();
     }, []);
 
