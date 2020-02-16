@@ -22,7 +22,7 @@ export function Confirmation() {
                 : (
                     <>
                         <h4>Order Confirmation</h4>
-                        <QRCode className="confirmation-qr" value={transaction.token} size={256} />
+                        <QRCode className="confirmation-qr" value={transaction.id} size={256} />
                         <i className='confirmation-qr-message'>Please present this barcode to the seller upon arrival.</i>
                         <b>Item Available Until {moment(transaction.item.availableTill).format("dddd, MMMM Do YYYY, h:mm:ss a")} <br/></b>
                         Item: {transaction.item.item_template.name} <br />

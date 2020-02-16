@@ -16,6 +16,7 @@ import { Confirmation } from "./pages/confirmation/Confirmation";
 import { ItemTemplateForm } from "./pages/itemtemplateform/ItemTemplateForm";
 import { ItemInformationForm } from './pages/iteminformationform/ItemInformationForm';
 import { SupplierHome } from "./pages/supplierhome/SupplierHome";
+import { Scanner } from "./pages/scanner/Scanner";
 
 export default function App() {
   return (
@@ -49,6 +50,10 @@ export default function App() {
           <Route path="/supplierhome">
             <NavBar />
             <SupplierHome />
+          </Route>
+          <Route path="/scanner">
+            <NavBar />
+            <Scanner />
           </Route>
           <Route path="/login">
             <Login />
