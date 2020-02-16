@@ -1,17 +1,18 @@
 # FoodBeGone
 
 ## Overview
--Web application (mobile friendly) built using TomTom’s Map API
+-Web application (mobile friendly) built using TomTom’s Map API <br/>
+-An app that lets restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices.
 
 ## Inspiration
-Food waste problem xx%
-restaurant/cafe/bakery demand validation 
-Reducing food waste
+Food waste problem xx% <br/>
+restaurant/cafe/bakery demand validation <br/>
+Reducing food waste <br/>
 
 ## What it does
--Allows the restaurant to reduce the food waste 
--Allows the end-user to get food from the restaurants for cheaper price
--Provides basic information such as hours of operation, directions to the shop, and pricing
+-Allows the restaurant to reduce the food waste <br/>
+-Allows the end-user to get food from the restaurants for cheaper price <br/>
+-Provides basic information such as hours of operation, directions to the shop, and pricing <br/>
 
 
 ## Demo
@@ -43,6 +44,7 @@ One of the biggest challenges we faced was integrating with Google Calendar. Acc
 ## Accomplishments that we'are proud of
 
 ## What we learned
+-Through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown way in most of the time.
 
 ## What's next for FoodBeGone
 
