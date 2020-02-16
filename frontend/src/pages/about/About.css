@@ -1,0 +1,14 @@
+.card-form {
+    padding: 20px;
+}
+.card .card-image {
+    height: 500px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+.card .card-image img {
+    width: unset !important;
+    height: 100%;
+}

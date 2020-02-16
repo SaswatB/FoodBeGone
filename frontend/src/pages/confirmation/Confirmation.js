@@ -11,7 +11,8 @@ export function Confirmation() {
             amount: 1299,
             token: "26b4bc7b70d0feb4018a171cc3d3e4fe1c38671e5170ac2dc6d72642344c",
             item: {
-                count: 2,
+                count_left: 2,
+                count: 3,
                 template: {
                     name: 'Tomato',
                     seller: {
@@ -39,7 +40,7 @@ export function Confirmation() {
                     <>
                         <QRCode className="confirmation-qr" value={transaction.token} size={256} />
                         Item: {transaction.item.template.name} <br />
-                        Count: {transaction.item.count} <br />
+                        Count: {transaction.item.count_left}/{transaction.item.count} <br />
                         Amount: ${(transaction.amount/100).toFixed(2)} <br />
                         Purchase Date: {moment(transaction.timestamp).format("dddd, MMMM Do YYYY, h:mm:ss a")} <br/>
                         Seller: {transaction.item.template.seller.name} <br/>
