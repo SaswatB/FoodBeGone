@@ -114,7 +114,7 @@ We are pretty proud of having a working product that solves a real-world need an
 -Before doing the store visit survey, we thought that restaurants were buying materials to some extent in anticipation of demand. However, through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown away most of the time.
 
 ## What's next for FoodBeGone
-We can dig deeper into our project and add more features. We can add specific pickup time options and add delivery services in conjunction with delivery service to better meet the needs of certain customers. Also, for customers who want to donate, they can create a culture of food donation in connection with the government.
+We can dig deeper into our project and add more features. We can add specific pickup time options and add delivery services in conjunction with delivery api or application to better meet the needs of certain customers. Also, for customers who want to donate, they can create a culture of food donation in connection with the government.
 
 ## Team
 -Dalia <br/>
