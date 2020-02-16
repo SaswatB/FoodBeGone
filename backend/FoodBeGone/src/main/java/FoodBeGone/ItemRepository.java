@@ -2,5 +2,5 @@ package FoodBeGone;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface ItemRepository extends CrudRepository<User, String>{
+public interface ItemRepository extends CrudRepository<Item, String>{
 }

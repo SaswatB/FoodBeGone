@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -33,10 +34,13 @@ public class User {
 	
 	private LocalTime close_time;
 	
+	@OneToMany
 	private List<Item> items;
 	
+	@OneToMany
 	private List<ItemTemplate> itemTemplates;
 	
+	@OneToMany
 	private List<Transaction> transactions;
 
 	public String getId() {
