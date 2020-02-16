@@ -108,6 +108,7 @@ To run the app:
 One of the biggest challenges we faced was integrating with Google Calendar. Accessing an external API is an asynchronous procedure, and we had to make a clever series of callbacks from the chatbot to fetch and update events in the calendar.
 
 ## Accomplishments that we'are proud of
+We are pretty proud of having a working product that solves a real-world need and successfully finished a web application. 
 
 ## What we learned
 -Before doing the store visit survey, we thought that restaurants were buying materials to some extent in anticipation of demand. However, through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown away most of the time.
