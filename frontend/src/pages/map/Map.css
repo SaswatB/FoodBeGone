@@ -26,14 +26,57 @@
 .my-location-control {
     background-image: url('/img/user_select_location.png');
     background-size: cover;
-    background-color: lightgray;
+    background-color: white;
+    background-origin: content-box;
+    background-repeat: no-repeat;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     z-index: 10;
     box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.75);
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 100%;
+    padding: 5px;
+}
+
+.options-control {
+    background-image: url('/img/menu.png');
+    background-size: cover;
+    background-color: white;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.75);
+    border-radius: 100%;
+    padding: 5px;
+}
+
+.map-menu {
+    background-color: white;
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    width: 200px;
+    z-index: 10;
+    box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.map-menu-item {
+    text-align: center;
+    padding: 5px;
+    transition: all 150ms;
+    display: block;
+    color: black;
+}
+.map-menu-item:hover {
+    background-color: lightskyblue;
+    cursor: pointer;
 }

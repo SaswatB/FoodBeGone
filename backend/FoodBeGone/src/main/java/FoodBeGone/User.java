@@ -27,6 +27,8 @@ public class User {
 	private double lat;
 	
 	private double lon;
+
+	private String address;
 	
 	private String description;
 	
@@ -34,14 +36,14 @@ public class User {
 	
 	private LocalTime close_time;
 	
-	@OneToMany
-	private List<Item> items;
-	
-	@OneToMany
-	private List<ItemTemplate> itemTemplates;
-	
-	@OneToMany
-	private List<Transaction> transactions;
+//	@OneToMany
+//	private List<Item> items;
+//	
+//	@OneToMany
+//	private List<ItemTemplate> itemTemplates;
+//	
+//	@OneToMany
+//	private List<Transaction> transactions;
 
 	public String getId() {
 		return id;
@@ -83,6 +85,14 @@ public class User {
 		this.lon = lon;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -113,29 +123,5 @@ public class User {
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
-	}
-
-	public List<Item> getItems() {
-		return items;
-	}
-
-	public void setItems(List<Item> items) {
-		this.items = items;
-	}
-
-	public List<ItemTemplate> getItemTemplates() {
-		return itemTemplates;
-	}
-
-	public void setItemTemplates(List<ItemTemplate> itemTemplates) {
-		this.itemTemplates = itemTemplates;
-	}
-
-	public List<Transaction> getTransactions() {
-		return transactions;
-	}
-
-	public void setTransactions(List<Transaction> transactions) {
-		this.transactions = transactions;
 	}
 }

@@ -1,6 +1,5 @@
 package FoodBeGone;
 
-import java.time.LocalTime;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -16,8 +15,13 @@ public class Item {
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
+	
+	@ManyToOne
+	private User user;
     private int count;
     private int count_left;
+	private String item_template_id;
+	
 	@ManyToOne
 	private ItemTemplate item_template;
 	private LocalDateTime available_til;
@@ -39,12 +43,12 @@ public class Item {
 		this.count = count;
 	}
 
-	public ItemTemplate getItem_template() {
-		return item_template;
+	public String getItem_template_id() {
+		return item_template_id;
 	}
 
-	public void setItem_template(ItemTemplate item_template) {
-		this.item_template = item_template;
+	public void setItem_template_id(String item_template_id) {
+		this.item_template_id = item_template_id;
 	}
 
 	public LocalDateTime getAvailable_til() {
@@ -70,4 +74,23 @@ public class Item {
     public void setCount_left(int count_left){
         this.count_left = count_left;
     }
+
+	public ItemTemplate getItem_template() {
+		return item_template;
+	}
+
+	public void setItem_template(ItemTemplate item_template) {
+		this.item_template = item_template;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+    
+    
 }
