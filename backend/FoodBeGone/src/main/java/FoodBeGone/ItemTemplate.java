@@ -1,8 +1,5 @@
 package FoodBeGone;
 
-import java.util.Date;
-import java.time.LocalTime;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -68,5 +65,4 @@ public class ItemTemplate {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 }

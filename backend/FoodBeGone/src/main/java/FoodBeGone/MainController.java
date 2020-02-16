@@ -71,4 +71,11 @@ public class MainController {
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(null);
 	}
+	
+	
+	@GetMapping("/items/template")
+	public ResponseEntity<?> getItemTemplate(@RequestBody Map<String, Object> params) {
+		return null;
+	}
+	
 }
