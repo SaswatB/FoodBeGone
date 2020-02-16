@@ -15,7 +15,9 @@ Reducing food waste <br/>
 -Provides basic information such as hours of operation, directions to the shop, and pricing <br/>
 
 
-## Demo
+## Demo (Image and video)
+
+
 Pick and Reserve Your Food for Pickup!
 ![FoodBeGone ItemsListAndReserveForm](https://user-images.githubusercontent.com/2976514/74608656-f0e45100-5097-11ea-9fed-31a08c8d103a.gif)
 
@@ -37,6 +39,21 @@ Server-Side
 -Springboot
 -mySQL
 -Hibernate
+
+## Installation Instruction
+
+
+To run the app:
+
+1. [Clone the app] (https://github.com/SaswatB/FoodBeGone.git)
+2. start server 
+    * go to 'Githubs/FoodBeGone/backend/FoodBeGone'
+    * run command './gradlew bootRun'
+2. start client
+    * go to 'Githubs/FoodBeGone/frontend'
+    * export tomtom's API key 'export REACT_APP_TOM_TOM_API_KEY={yourAPI}'
+    * run command 'yarn start'
+
 
 ## Challenges we ran into
 One of the biggest challenges we faced was integrating with Google Calendar. Accessing an external API is an asynchronous procedure, and we had to make a clever series of callbacks from the chatbot to fetch and update events in the calendar.
