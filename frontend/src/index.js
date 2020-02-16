@@ -4,7 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'materialize-css/dist/css/materialize.min.css'
+import M from 'materialize-css'
 
+M.AutoInit();
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
