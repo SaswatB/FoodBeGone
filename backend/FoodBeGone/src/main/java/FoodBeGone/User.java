@@ -27,6 +27,8 @@ public class User {
 	private double lat;
 	
 	private double lon;
+
+	private String address;
 	
 	private String description;
 	
@@ -81,6 +83,14 @@ public class User {
 
 	public void setLon(double lon) {
 		this.lon = lon;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getDescription() {
