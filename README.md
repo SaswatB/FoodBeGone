@@ -1,7 +1,7 @@
 # FoodBeGone
 
 ## Overview
--Web application that lets restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices. <br/>
+-Web application that allows restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices. <br/>
 -Web application (mobile friendly) built using TomTom’s Map API
 
 ## Inspiration
@@ -65,6 +65,7 @@ One of the biggest challenges we faced was integrating with Google Calendar. Acc
 -Before doing the store visit survey, we thought that restaurants were buying materials to some extent in anticipation of demand. However, through a store visit survey, we found that most restaurants face daily problems that they waste their unsold, surplus foods and these foods end up being thrown away most of the time.
 
 ## What's next for FoodBeGone
+-We can add specific pickup time options and add delivery services in conjunction with delivery api to better meet the needs of certain customers. Also, for customers who want to donate, we can create a culture of food donation in connection with the government.
 
 ## Team
 -Dalia <br/>
