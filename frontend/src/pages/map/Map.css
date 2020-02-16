@@ -1,0 +1,39 @@
+.marker-user-location {
+    background-image: url('/img/user_location_marker.png');
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}
+.marker-supplier-location {
+    background-image: url('/img/supplier_location_marker.png');
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+}
+
+.location-popup {
+    background-color: white;
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    z-index: 10;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
+}
+
+.my-location-control {
+    background-image: url('/img/user_select_location.png');
+    background-size: cover;
+    background-color: lightgray;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+    box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+    padding: 10px;
+}
