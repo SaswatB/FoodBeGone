@@ -5,7 +5,7 @@ import { SERVER } from "../../constants";
 import "./Items.css"
 
 export function Items() {
-  let { supplier_id } = useParams();
+  const { supplier_id } = useParams();
   const [items, setItems] = useState();
   // get items from the api
   useEffect(() => {
