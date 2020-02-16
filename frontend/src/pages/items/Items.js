@@ -41,7 +41,7 @@ export function Items() {
           <div className="col s12 m6" key={item.id}>
             <div className="card">
               <div className="card-image waves-effect waves-block waves-light">
-                <img className="activator" src="https://i.imgur.com/jhKpeYH.jpg" alt="food" />
+                <img className="activator" src={item.item_template.image} alt="food" />
               </div>
               <div className="card-content">
                 <span className="card-title activator grey-text text-darken-4">{item.item_template.name} <a className="btn-floating red pulse right"><i className="material-icons right">add</i></a></span>
@@ -49,7 +49,7 @@ export function Items() {
               <div className="card-reveal">
                 <span className="card-title grey-text text-darken-4"><h1>Buy {item.item_template.name}</h1><i className="material-icons right">close</i></span>
                 <h5>Seller:</h5>
-                <h6>{item.item_template.user.name}</h6>
+                <h6>{item.item_template.user.user_name}</h6>
                 <h5>Pickup Address:</h5>
                 <h6>{item.item_template.user.address}</h6>
                 <h5>Pickup Window:</h5>

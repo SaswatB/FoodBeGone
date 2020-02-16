@@ -1,12 +1,4 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    font-family: 'Noto Sans KR', sans-serif;
-    min-width: 768px;
-  }
+
 
   .helper {
     display: inline-block;
@@ -61,12 +53,7 @@ input[type="file"] {
   margin: 50px 2px;
   cursor: pointer;
 }
-  
-/* header */
-span {
-    display: inline-block;
-}
-
+/*   
 
 /* about */
 .about {
@@ -114,4 +101,16 @@ span {
   right: 20px;
   left: 10px;
   top: 0;
+}
+
+.react-datepicker {
+  width: 325px;
+}
+.react-datepicker-wrapper {
+  width: 250px;
+}
+
+.item-add-form-select {
+  display: unset;
+  width: 250px;
 }

@@ -50,7 +50,7 @@ export function ItemTemplateForm() {
     <section class="about">
       <div class="helper"></div>
       <div class="vertical-center">
-        <h3>Upload Item</h3>
+        <h3>Upload Item Template</h3>
 
         {successMessage && (
           <h4 className="success-message">
