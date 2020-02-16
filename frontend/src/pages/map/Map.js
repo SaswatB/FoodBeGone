@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import tt from '@tomtom-international/web-sdk-maps';
 import tts from '@tomtom-international/web-sdk-services';
 import "./Map.css"
@@ -65,8 +66,8 @@ export function Map() {
                     },
                     layout: {},
                     paint: {
-                        'fill-color': '#03a9f4',
-                        'fill-opacity': 0.1,
+                        'fill-color': '#80cbc4',
+                        'fill-opacity': 0.3,
                         'fill-outline-color': 'black'
                     }
                 });
@@ -118,6 +119,11 @@ export function Map() {
         };
     };
 
+    const [menuVisible, setMenuVisible] = useState(false);
+    const showMenu = () => {
+        setMenuVisible(!menuVisible);
+    };
+
     return (
         <>
             {selectedLocation && <div className="location-popup" style={{top: selectedLocation.y, left: selectedLocation.x}} onMouseDown={(event) => event.stopPropagation()}>
@@ -126,6 +132,10 @@ export function Map() {
             </div>}
             <div id="map" style={{height: "100%"}}/>
             <div className="my-location-control" onClick={showMyLocation}></div>
+            <div className="options-control" onClick={showMenu}></div>
+            {menuVisible && <div className="map-menu">
+                <Link className="map-menu-item" to="/transactions">Transaction History</Link>
+            </div>}
         </>
     );
 }
