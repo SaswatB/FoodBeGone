@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useUser } from "../../utils/useUser";
 import "./Login.css"
@@ -6,9 +6,15 @@ import "./Login.css"
 export function Login() {
     const [, setUserId,, setUserType] = useUser(false);
     const history = useHistory();
+    const [userName, setUserName] = useState();
     const login = () => {
-      setUserId(1)
-      setUserType('buyer');
+      if (userName === 'supplier') {
+        setUserId(1);
+        setUserType('supplier');
+      } else {
+        setUserId(1);
+        setUserType('buyer');
+      }
       history.push('/');
   };
 
@@ -19,7 +25,7 @@ export function Login() {
         <form className="col s12" onSubmit={(event) => { event.preventDefault(); login() }}>
           <div className="input-field">
             <i className="material-icons prefix">account_circle</i>
-            <input id="icon_prefix" type="text" className="validate" />
+            <input id="icon_prefix" type="text" className="validate" value={userName} onChange={(event) => setUserName(event.target.value)} />
             <label htmlFor="icon_prefix">First Name</label>
           </div>
           <div className="input-field">
