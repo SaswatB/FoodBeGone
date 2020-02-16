@@ -22,7 +22,7 @@ export function Items() {
   const submitOrder = async (item_id, purchased_count) => {
     const transaction = (await axios.post(`http://${SERVER}/users/0/transactions`, {
       item_id,
-      "buyer_id": "123",
+      "buyer_id": "4f43acf0-5df7-45c7-b759-6d42cacf6f2a",
       purchased_count,
       "token": "123"
     })).data;

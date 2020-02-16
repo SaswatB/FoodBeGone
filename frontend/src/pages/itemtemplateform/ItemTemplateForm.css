@@ -115,3 +115,28 @@ span {
   left: 10px;
   top: 0;
 }
+
+.item-template-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.success-message {
+  color: black;
+}
+.success-message .material-icons {
+  color: green;
+}
+.upload-img-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+.upload-img {
+  display: block;
+  width: auto;
+  height: 100%;
+}
