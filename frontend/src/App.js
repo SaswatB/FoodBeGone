@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { NavBar } from './components/navbar/NavBar';
 import { Map } from './pages/map/Map';
-import { About } from './pages/about/About';
+import { Items } from './pages/items/Items';
 import { Users } from './pages/users/Users';
 import { Transactions } from './pages/transactions/Transactions';
 import { Confirmation } from "./pages/confirmation/Confirmation";
@@ -17,9 +17,9 @@ export default function App() {
     <Router>
       <div style={{display: "flex", flexDirection: "column", height: "100vh"}}>
         <Switch>
-          <Route path="/about">
+          <Route path="/items/:supplier_id">
             <NavBar />
-            <About />
+            <Items />
           </Route>
           <Route path="/users">
             <NavBar />
@@ -29,7 +29,7 @@ export default function App() {
             <NavBar />
             <Transactions />
           </Route>
-          <Route path="/confirmation">
+          <Route path="/confirmation/:transaction_id">
             <NavBar />
             <Confirmation />
           </Route>
