@@ -80,7 +80,7 @@ public class MainController {
 			ItemTemplate template = new ItemTemplate();
 			template.setName(params.get("name").toString());
 			template.setDescription(params.get("description").toString());
-			template.setPrice((int) (Float.parseFloat(params.get("price").toString()) * 100));
+			template.setPrice((int) (Float.parseFloat(params.get("price").toString())));
 			template.setImage(params.get("image").toString());
 			template.setUser(user);
 

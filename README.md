@@ -1,4 +1,9 @@
 # FoodBeGone
+**Step 1: Pick Your Food.   
+Step 2: Get a Discount!  
+Step 3: Save the Planet :)**
+
+![FoodBeGone ItemsListAndReserveForm](https://user-images.githubusercontent.com/2976514/74608656-f0e45100-5097-11ea-9fed-31a08c8d103a.gif)
 
 ## Overview
 -Web application that lets restaurant owners upload their food items made by their surplus materials to end-users seeking convenient meals at discounted prices. <br/>
@@ -24,23 +29,36 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 - [x] User as a supplier can upload their item template (food menu)
 - [x] User as a supplier can upload their last call food using item template with discount rate
 - [x] User as a supplier can select the available pickup time
+- [ ] User as a supplier can see all the transactions
+- [ ] User as a supplier can submit a taxation  information in synced taxation software (turbotax) with a click
 - [x] User as a buyer can login
 - [x] User as a buyer can see the map and find the restuarnt, grocery stores, cafe, bakery that have last call items on sales 
-- [ ] User as a buyer can use filter to show suppliers based on distance, type (restaurant, grocery), percentage of discount
+- [ ] User as a buyer can use filter to show suppliers based on distance, type (restaurant, grocery), percentage of discount, duration to get there (TomTom's Search API, Geocoding API, Routing API)
 - [ ] User as a buyer can follow their favorite supplier
 - [ ] User as a buyer can get a notification from following supplier once supplier put last call item on sales
 - [x] User as a buyer can pick an item that want to purchase and resever it
-- [ ] User as a buyer can pay for the purchase
+- [ ] User as a buyer can pay for the purchase in the app
 - [x] User as a buyer can see the QRcode generated for confirmation
-- [ ] User as a buyer can navigate to the store in the app
+- [ ] User as a buyer can navigate to the store in the app (Tomtom routing API)
+- [ ] User as a buyer can see the number of item left in the item detail view
+- [ ] User as a buyer can add commute route to get the notification from suppliers that are near by his/her route range
+
+Version 2 - connector
+- [ ] User as a deliverer can pick up the last call food from supplier and deliver to the end user and take delivery fee
+- [ ] User as a NPO can pick up the last call food from supplier and donate to the charity/shelter
 
  
 
 ## Demo (Image and video)
-**GIF video**
-![video](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/Screen%20Capture%20on%202020-02-16%20at%2012-06-09.gif)
+**GIF videos**
 
-**Supplier**
+**Buyer video**
+![video](https://user-images.githubusercontent.com/2976514/74612273-b0e19600-50b8-11ea-82d5-12e91c7c933b.gif)
+
+**Supplier video**
+![video](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/item%20add.gif)
+
+**Supplier Screenshots**
 
 
 1.login
@@ -60,7 +78,7 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 
 ![Adding item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/ws4_item_filled.png)
 
-**Buyer**
+**Buyer Screenshots**
 
 1. login
 
@@ -79,20 +97,13 @@ Most restaurants, grocery and bakery stores are wasting an additional 25% of the
 
 ![item](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb4_item.png)
 
-5. resever
+5. reserve
 
 ![reserve](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb5_purchase.png)
 
 6. confirmation
 
 ![confirmation](https://github.com/SaswatB/FoodBeGone/blob/master/screenshots/wb6_confirmation.png)
-
-
-Pick and Reserve Your Food for Pickup!
-![FoodBeGone ItemsListAndReserveForm](https://user-images.githubusercontent.com/2976514/74608656-f0e45100-5097-11ea-9fed-31a08c8d103a.gif)
-
-
-(Devs: db admin info here Issue #6 https://github.com/SaswatB/FoodBeGone/issues/6)
 
 ## How we built it
 Built with<br/><br/>
@@ -102,7 +113,9 @@ Built with<br/><br/>
 -TomTom API (https://developer.tomtom.com/) <br/>
 * Map Display API <br/>
    * Cusotom Makrer
-* Reachable region <br/>
+* Routing API
+  * Reachable region 
+  <br/>
 
 
 
